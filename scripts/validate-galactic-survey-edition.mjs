@@ -25,6 +25,7 @@ const expectedFamily = {
 
 const requiredModules = [
   'echocore',
+  'echoaddonapi',
   'echonetcore',
   'echoadaptercore',
   'echoruntimeguard',

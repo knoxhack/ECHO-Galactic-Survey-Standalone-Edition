@@ -6,6 +6,7 @@ artifacts.
 Required modules:
 
 - `echocore`
+- `echoaddonapi`
 - `echonetcore`
 - `echoadaptercore`
 - `echoruntimeguard`
