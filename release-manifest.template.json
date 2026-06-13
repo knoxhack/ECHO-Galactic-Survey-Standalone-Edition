@@ -21,17 +21,6 @@
       "side": "both"
     },
     {
-      "id": "echoaddonapi",
-      "moduleId": "echoaddonapi",
-      "version": "0.1.0",
-      "artifactFamily": "standalone",
-      "assetName": "echoaddonapi-0.1.0-standalone.jar",
-      "artifactName": "echoaddonapi-0.1.0-standalone.jar",
-      "path": "mods/echoaddonapi-0.1.0-standalone.jar",
-      "required": true,
-      "side": "both"
-    },
-    {
       "id": "echoassetcore",
       "moduleId": "echoassetcore",
       "version": "1.0.0",
