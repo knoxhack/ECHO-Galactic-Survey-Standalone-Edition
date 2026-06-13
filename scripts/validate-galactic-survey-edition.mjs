@@ -9,6 +9,7 @@ const moduleRoot = path.resolve(
     : path.join(root, '..', 'ECHO-Modules', 'addons', 'echogalacticsurveyprotocol')
 )
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'release-manifest.template.json'), 'utf8'))
+const officialSelections = JSON.parse(fs.readFileSync(path.join(root, '..', 'ECHO-Modules', 'metadata', 'official-pack-module-selections.json'), 'utf8'))
 const fail = (message) => { throw new Error(message) }
 
 const edition = manifest.runtimeTarget === 'echo_native'
@@ -23,26 +24,7 @@ const expectedFamily = {
   echo_runtime_standalone: 'standalone'
 }[manifest.runtimeTarget]
 
-const requiredModules = [
-  'echocore',
-  'echoaddonapi',
-  'echonetcore',
-  'echoadaptercore',
-  'echoruntimeguard',
-  'echogalacticcore',
-  'echoorbitalremnants',
-  'echovehiclecore',
-  'echoholomap',
-  'echoterminal',
-  'echoindex',
-  'echolens',
-  'echomissioncore',
-  'echopowergrid',
-  'echologisticsnetwork',
-  'echoprogressioncore',
-  'echosoundcore',
-  'echogalacticsurveyprotocol'
-]
+const requiredModules = officialSelections.packs['galactic-survey'].modules
 
 const requiredDocs = [
   'README.md',
@@ -81,6 +63,12 @@ for (const moduleId of requiredModules) {
     fail(`release manifest must require ${moduleId}.`)
   }
 }
+const actualModules = (manifest.moduleRequirements ?? []).map((entry) => entry.id)
+const extraModules = actualModules.filter((moduleId) => !requiredModules.includes(moduleId))
+if (actualModules.length !== requiredModules.length) {
+  fail(`release manifest must require exactly ${requiredModules.length} Galactic Survey modules.`)
+}
+if (extraModules.length) fail(`release manifest has unexpected modules: ${extraModules.join(', ')}.`)
 if (!manifest.requiredRuntimeEvidenceContract?.includes('galacticsurvey/plan/production_phase_matrix.json')) {
   fail('requiredRuntimeEvidenceContract must point at the Galactic Survey production phase matrix.')
 }
