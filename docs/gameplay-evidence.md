@@ -61,6 +61,40 @@ Initialize the evidence capture layout before the manual run:
 node scripts\init-manual-gameplay-evidence.mjs
 ```
 
+Import a completed real capture bundle after the run:
+
+```powershell
+node scripts\import-manual-gameplay-capture.mjs `
+  --capture-root C:\Path\To\galactic-survey-capture `
+  --artifact C:\Path\To\galactic-survey-standalone-edition-0.1.0.zip `
+  --tester "tester-or-device-id" `
+  --world-or-profile "fresh profile name" `
+  --started-at "2026-06-13T10:30:00Z" `
+  --force
+```
+
+The capture root must contain these real files, using the same relative paths:
+
+- `fresh-world-notes.md`
+- `first-30-minutes-notes.md`
+- `first-2-hours-notes.md`
+- `survey-array-verification.md`
+- `no-crash-review.md`
+- `screenshots/fresh-world-created.png`
+- `screenshots/first-30-minutes.png`
+- `screenshots/first-2-hours.png`
+- `screenshots/survey-array-complete.png`
+- `logs/client-playthrough.log`
+- `saves/first-30-minutes-save.zip`
+- `saves/first-2-hours-save.zip`
+- `saves/survey-array-save.zip`
+
+The importer copies those files into this repo's evidence folder, computes the
+pack artifact SHA-256 and size, marks the release gates true, and still leaves
+`verify-manual-gameplay-evidence.mjs --require-release-ready` as the authority.
+It rejects template markers, placeholder text, non-PNG screenshots, non-ZIP save
+snapshots, and accidental overwrites unless `--force` is supplied.
+
 Template-mode CI check:
 
 ```powershell
