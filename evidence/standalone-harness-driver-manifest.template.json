@@ -1,0 +1,17 @@
+{
+  "schema": "echo.galactic_survey.harness_driver_manifest.v1",
+  "runtimeTarget": "echo_runtime_standalone",
+  "packId": "galactic-survey-standalone-edition",
+  "requiredScenarios": [
+    "fresh_world_creation",
+    "first_30_minutes",
+    "first_2_hours",
+    "survey_array_completion",
+    "launcher_install_update_repair_rollback"
+  ],
+  "requiredContracts": [
+    "data/echogalacticsurveyprotocol/galacticsurvey/progression/first_30_minutes.json",
+    "data/echogalacticsurveyprotocol/galacticsurvey/progression/first_2_hours.json",
+    "data/echogalacticsurveyprotocol/galacticsurvey/progression/survey_array_requirements.json"
+  ]
+}

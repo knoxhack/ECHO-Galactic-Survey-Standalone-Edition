@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "echo.galactic_survey.gameplay-qa.manual.v1",
+  "packId": "galactic-survey-standalone-edition",
+  "generatedAt": "1970-01-01T00:00:00Z",
+  "claims": {
+    "realFirst30Playthrough": false,
+    "realFirst2HourPlaythrough": false,
+    "realSurveyArrayPlaythrough": false,
+    "freshWorldCreated": false,
+    "saveReloadVerified": false,
+    "noCrashEvidence": false,
+    "launcherInstallUpdateRepairRollback": false
+  },
+  "releaseGates": [
+    { "id": "probe_launch_works", "proof": "probe:starter_probe", "requiredClaim": "realFirst30Playthrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "holomap_reveals_meaningful_data", "proof": "holomap_layer:scan_cones", "requiredClaim": "realFirst30Playthrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "catalog_entries_unlock_from_discoveries", "proof": "discovery:barren_moon_kg_01a", "requiredClaim": "realFirst30Playthrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "fuel_route_limits_understandable", "proof": "route:near_sector_01_survey_hop", "requiredClaim": "realFirst2HourPlaythrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "one_salvage_site_playable", "proof": "salvage:derelict_relay_osprey", "requiredClaim": "realFirst2HourPlaythrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "one_probe_upgrade_matters", "proof": "item:long_range_probe", "requiredClaim": "realFirst2HourPlaythrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "first_2_hour_loop_no_dead_end", "proof": "mission:first_survey_circuit", "requiredClaim": "realFirst2HourPlaythrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "real_first_30_playthrough", "proof": "manual:real_first_30_playthrough", "requiredClaim": "realFirst30Playthrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "real_first_2_hour_playthrough", "proof": "manual:real_first_2_hour_playthrough", "requiredClaim": "realFirst2HourPlaythrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "real_survey_array_playthrough", "proof": "manual:real_survey_array_playthrough", "requiredClaim": "realSurveyArrayPlaythrough", "satisfied": false, "evidenceSource": "template" },
+    { "id": "fresh_world_created", "proof": "manual:fresh_world_created", "requiredClaim": "freshWorldCreated", "satisfied": false, "evidenceSource": "template" },
+    { "id": "save_reload_verified", "proof": "manual:save_reload_verified", "requiredClaim": "saveReloadVerified", "satisfied": false, "evidenceSource": "template" },
+    { "id": "no_crash_evidence", "proof": "manual:no_crash_evidence", "requiredClaim": "noCrashEvidence", "satisfied": false, "evidenceSource": "template" },
+    { "id": "launcher_install_update_repair_rollback", "proof": "launcher:install_update_repair_rollback", "requiredClaim": "launcherInstallUpdateRepairRollback", "satisfied": false, "evidenceSource": "template" }
+  ],
+  "supportingFiles": [
+    "fixtures/galactic-survey/gameplay-qa/evidence/fresh-world-notes.md",
+    "fixtures/galactic-survey/gameplay-qa/evidence/first-30-minutes-notes.md",
+    "fixtures/galactic-survey/gameplay-qa/evidence/first-2-hours-notes.md",
+    "fixtures/galactic-survey/gameplay-qa/evidence/survey-array-verification.md",
+    "fixtures/galactic-survey/gameplay-qa/evidence/launcher-flow-review.md",
+    "fixtures/galactic-survey/gameplay-qa/evidence/no-crash-review.md"
+  ],
+  "screenshots": [
+    "fixtures/galactic-survey/gameplay-qa/evidence/screenshots/fresh-world-created.png",
+    "fixtures/galactic-survey/gameplay-qa/evidence/screenshots/first-30-minutes.png",
+    "fixtures/galactic-survey/gameplay-qa/evidence/screenshots/first-2-hours.png",
+    "fixtures/galactic-survey/gameplay-qa/evidence/screenshots/survey-array-complete.png"
+  ],
+  "logs": [
+    "fixtures/galactic-survey/gameplay-qa/evidence/logs/client-playthrough.log",
+    "fixtures/galactic-survey/gameplay-qa/evidence/logs/launcher-install-update-repair-rollback.log"
+  ],
+  "saveSnapshots": [
+    "fixtures/galactic-survey/gameplay-qa/evidence/saves/first-30-minutes-save.zip",
+    "fixtures/galactic-survey/gameplay-qa/evidence/saves/first-2-hours-save.zip",
+    "fixtures/galactic-survey/gameplay-qa/evidence/saves/survey-array-save.zip"
+  ],
+  "notes": [
+    "Template only. Do not set claims true until each referenced file is real playthrough evidence.",
+    "Copy this file to manual-evidence.json before running the Release Index verifier.",
+    "Initialized from template. Keep claims false until the referenced files are real playthrough evidence."
+  ],
+  "run": {
+    "tester": "TBD",
+    "releaseTag": "galactic-survey-standalone-0.1.0-alpha",
+    "artifactAsset": "galactic-survey-standalone-edition-0.1.0.zip",
+    "artifactSha256": "TBD",
+    "artifactSize": 0,
+    "launcherChannel": "alpha",
+    "worldOrProfile": "TBD",
+    "installedFrom": "ECHO Launcher",
+    "startedAt": "1970-01-01T00:00:00Z"
+  },
+  "sessions": []
+}

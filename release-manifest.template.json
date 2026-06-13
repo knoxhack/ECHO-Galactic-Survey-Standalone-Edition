@@ -1,0 +1,106 @@
+{
+  "packId": "galactic-survey-standalone-edition",
+  "displayName": "Galactic Survey Standalone Edition",
+  "sourceRepo": "knoxhack/ECHO-Galactic-Survey-Standalone-Edition",
+  "launcherFeed": "github-releases",
+  "runtimeTarget": "echo_runtime_standalone",
+  "loader": "echo-standalone-runtime",
+  "moduleArtifactFamily": "standalone",
+  "moduleArtifactPattern": "<module>-<version>-standalone.jar",
+  "moduleSourcePattern": "<module>-<version>-sources.jar",
+  "moduleRequirements": [
+    {
+      "id": "echocore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echonetcore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echoadaptercore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echoruntimeguard",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echogalacticcore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echoorbitalremnants",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echovehiclecore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echoholomap",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echoterminal",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echoindex",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echolens",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echomissioncore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echopowergrid",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echologisticsnetwork",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echoprogressioncore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echosoundcore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echogalacticsurveyprotocol",
+      "version": "0.1.0"
+    }
+  ],
+  "requiredModuleDescriptors": [
+    "META-INF/echo.mod.json"
+  ],
+  "requiredRuntimeEvidenceContract": "data/echogalacticsurveyprotocol/galacticsurvey/plan/production_phase_matrix.json",
+  "requiredAdapterLoadPhases": [
+    "discover",
+    "load_data",
+    "register_content",
+    "bind_survey_network",
+    "bind_probes",
+    "bind_holomap_routes",
+    "bind_salvage_logistics",
+    "bind_launcher_manifest",
+    "ready",
+    "release_gate"
+  ],
+  "requiredPublicAlphaEvidence": [
+    "galacticsurvey_contract_validator_pass",
+    "native_neoforge_standalone_artifacts_uploaded_with_sha256",
+    "launcher_install_update_repair_rollback_pass",
+    "first_30_minute_playthrough_pass",
+    "first_2_hour_playthrough_pass",
+    "survey_array_completion_pass"
+  ],
+  "artifacts": []
+}

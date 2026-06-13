@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "echo.galactic_survey.release-gates.contract.v1",
+  "packId": "galactic-survey",
+  "sourceModule": "echogalacticsurveyprotocol",
+  "sourceResource": "data/echogalacticsurveyprotocol/galacticsurvey/release/release_gates.json",
+  "publicAlphaAllowed": false,
+  "gates": [
+    {
+      "id": "probe_launch_works",
+      "required": true,
+      "proof": "probe:starter_probe",
+      "requiredClaim": "realFirst30Playthrough"
+    },
+    {
+      "id": "holomap_reveals_meaningful_data",
+      "required": true,
+      "proof": "holomap_layer:scan_cones",
+      "requiredClaim": "realFirst30Playthrough"
+    },
+    {
+      "id": "catalog_entries_unlock_from_discoveries",
+      "required": true,
+      "proof": "discovery:barren_moon_kg_01a",
+      "requiredClaim": "realFirst30Playthrough"
+    },
+    {
+      "id": "fuel_route_limits_understandable",
+      "required": true,
+      "proof": "route:near_sector_01_survey_hop",
+      "requiredClaim": "realFirst2HourPlaythrough"
+    },
+    {
+      "id": "one_salvage_site_playable",
+      "required": true,
+      "proof": "salvage:derelict_relay_osprey",
+      "requiredClaim": "realFirst2HourPlaythrough"
+    },
+    {
+      "id": "one_probe_upgrade_matters",
+      "required": true,
+      "proof": "item:long_range_probe",
+      "requiredClaim": "realFirst2HourPlaythrough"
+    },
+    {
+      "id": "first_2_hour_loop_no_dead_end",
+      "required": true,
+      "proof": "mission:first_survey_circuit",
+      "requiredClaim": "realFirst2HourPlaythrough"
+    },
+    {
+      "id": "real_first_30_playthrough",
+      "required": true,
+      "proof": "manual:real_first_30_playthrough",
+      "requiredClaim": "realFirst30Playthrough"
+    },
+    {
+      "id": "real_first_2_hour_playthrough",
+      "required": true,
+      "proof": "manual:real_first_2_hour_playthrough",
+      "requiredClaim": "realFirst2HourPlaythrough"
+    },
+    {
+      "id": "real_survey_array_playthrough",
+      "required": true,
+      "proof": "manual:real_survey_array_playthrough",
+      "requiredClaim": "realSurveyArrayPlaythrough"
+    },
+    {
+      "id": "fresh_world_created",
+      "required": true,
+      "proof": "manual:fresh_world_created",
+      "requiredClaim": "freshWorldCreated"
+    },
+    {
+      "id": "save_reload_verified",
+      "required": true,
+      "proof": "manual:save_reload_verified",
+      "requiredClaim": "saveReloadVerified"
+    },
+    {
+      "id": "no_crash_evidence",
+      "required": true,
+      "proof": "manual:no_crash_evidence",
+      "requiredClaim": "noCrashEvidence"
+    },
+    {
+      "id": "launcher_install_update_repair_rollback",
+      "required": true,
+      "proof": "launcher:install_update_repair_rollback",
+      "requiredClaim": "launcherInstallUpdateRepairRollback"
+    }
+  ]
+}
