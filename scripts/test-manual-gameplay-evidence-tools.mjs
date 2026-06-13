@@ -8,6 +8,7 @@ import process from 'node:process'
 
 const repoRoot = process.cwd()
 const initScript = path.join(repoRoot, 'scripts', 'init-manual-gameplay-evidence.mjs')
+const prepScript = path.join(repoRoot, 'scripts', 'prepare-manual-gameplay-capture.mjs')
 const verifyScript = path.join(repoRoot, 'scripts', 'verify-manual-gameplay-evidence.mjs')
 const importScript = path.join(repoRoot, 'scripts', 'import-manual-gameplay-capture.mjs')
 const evidencePath = 'fixtures/galactic-survey/gameplay-qa/manual-evidence.json'
@@ -17,6 +18,11 @@ const noteTemplateRoot = 'fixtures/galactic-survey/gameplay-qa/evidence/template
 
 function run(script, root, args = []) {
   return spawnSync(process.execPath, [script, '--root', root, ...args], { encoding: 'utf8', windowsHide: true })
+}
+
+async function sha256File(filePath) {
+  const crypto = await import('node:crypto')
+  return crypto.createHash('sha256').update(await fs.readFile(filePath)).digest('hex')
 }
 
 async function copySeedFiles(root) {
@@ -38,9 +44,7 @@ async function copySeedFiles(root) {
   }
 }
 
-async function writeCaptureBundle(root, artifactName) {
-  const captureRoot = path.join(root, 'capture')
-  const artifactPath = path.join(root, artifactName)
+async function writeCaptureFiles(captureRoot) {
   const png = Buffer.from('89504e470d0a1a0a0000000d49484452', 'hex')
   const zip = Buffer.from('504b03040a0000000000', 'hex')
   const files = new Map([
@@ -63,8 +67,53 @@ async function writeCaptureBundle(root, artifactName) {
     await fs.mkdir(path.dirname(target), { recursive: true })
     await fs.writeFile(target, content)
   }
-  await fs.writeFile(artifactPath, Buffer.concat([zip, Buffer.from('artifact bytes')]))
-  return { captureRoot, artifactPath }
+}
+
+async function writeArtifact(filePath) {
+  const zip = Buffer.from('504b03040a0000000000', 'hex')
+  await fs.mkdir(path.dirname(filePath), { recursive: true })
+  await fs.writeFile(filePath, Buffer.concat([zip, Buffer.from('artifact bytes')]))
+  const stat = await fs.stat(filePath)
+  return { path: filePath, size: stat.size, sha256: await sha256File(filePath) }
+}
+
+async function writeDownloadEvidence(releaseIndexRoot, manifest, template, artifact) {
+  const repoName = manifest.sourceRepo.split('/').pop()
+  const localPath = path.relative(releaseIndexRoot, artifact.path).replace(/\\/g, '/')
+  const report = {
+    schemaVersion: 'echo.galactic_survey.draft-download.v1',
+    status: 'PASS',
+    data: {
+      downloadRoot: 'tmp/galactic-survey-draft-download',
+      editions: [
+        {
+          repoName,
+          packId: manifest.packId,
+          releaseTag: template.run.releaseTag,
+          release: {
+            htmlUrl: `https://example.invalid/${repoName}/releases/${template.run.releaseTag}`,
+            draft: false,
+            prerelease: true
+          },
+          downloadedAssets: [
+            {
+              name: template.run.artifactAsset,
+              size: artifact.size,
+              sha256: artifact.sha256,
+              githubDigestSha256: artifact.sha256,
+              browserDownloadUrl: `https://example.invalid/${template.run.artifactAsset}`,
+              apiUrl: `https://example.invalid/api/${template.run.artifactAsset}`,
+              state: 'uploaded',
+              localPath
+            }
+          ]
+        }
+      ]
+    }
+  }
+  const reportPath = path.join(releaseIndexRoot, 'release-readiness', 'galactic-survey-draft-download.json')
+  await fs.mkdir(path.dirname(reportPath), { recursive: true })
+  await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8')
 }
 
 const tmp = await fs.mkdtemp(path.join(os.tmpdir(), 'galactic-survey-edition-evidence-tools-'))
@@ -96,8 +145,28 @@ try {
   const importTmp = await fs.mkdtemp(path.join(os.tmpdir(), 'galactic-survey-edition-capture-import-'))
   try {
     await copySeedFiles(importTmp)
+    const manifest = JSON.parse(await fs.readFile(path.join(importTmp, 'release-manifest.template.json'), 'utf8'))
     const template = JSON.parse(await fs.readFile(path.join(importTmp, templatePath), 'utf8'))
-    const { captureRoot, artifactPath } = await writeCaptureBundle(importTmp, template.run?.artifactAsset ?? `${template.packId}-0.1.0.zip`)
+    const releaseIndexRoot = path.join(importTmp, 'fake-release-index')
+    const artifactPath = path.join(releaseIndexRoot, 'tmp', 'galactic-survey-draft-download', manifest.sourceRepo.split('/').pop(), template.run.artifactAsset)
+    const artifact = await writeArtifact(artifactPath)
+    await writeDownloadEvidence(releaseIndexRoot, manifest, template, artifact)
+    const captureRoot = path.join(importTmp, 'capture')
+    const prepArgs = [
+      '--release-index-root', releaseIndexRoot,
+      '--capture-root', captureRoot,
+      '--tester', 'CI capture tester',
+      '--world-or-profile', 'Galactic Survey CI profile',
+      '--started-at', '2026-06-13T10:30:00Z'
+    ]
+    const prepared = run(prepScript, importTmp, prepArgs)
+    assert.equal(prepared.status, 0, `${prepared.stdout}\n${prepared.stderr}`)
+    const prepReport = JSON.parse(prepared.stdout)
+    assert.equal(prepReport.status, 'READY_FOR_CAPTURE')
+    assert.equal(prepReport.artifact.matchesExpected, true)
+    assert.ok(await fs.stat(path.join(captureRoot, 'capture-manifest.json')))
+    assert.match(await fs.readFile(path.join(captureRoot, 'fresh-world-notes.md'), 'utf8'), /ECHO_GALACTIC_SURVEY_TEMPLATE_ONLY/u)
+
     const importArgs = [
       '--capture-root', captureRoot,
       '--artifact', artifactPath,
@@ -105,6 +174,11 @@ try {
       '--world-or-profile', 'Galactic Survey CI profile',
       '--started-at', '2026-06-13T10:30:00Z',
     ]
+    const scaffoldImport = run(importScript, importTmp, ['--dry-run', ...importArgs])
+    assert.equal(scaffoldImport.status, 1)
+    assert.match(`${scaffoldImport.stdout}\n${scaffoldImport.stderr}`, /template marker|capture file missing/u)
+
+    await writeCaptureFiles(captureRoot)
     const dryImport = run(importScript, importTmp, ['--dry-run', ...importArgs])
     assert.equal(dryImport.status, 0, `${dryImport.stdout}\n${dryImport.stderr}`)
     const dryImportReport = JSON.parse(dryImport.stdout)
@@ -122,6 +196,9 @@ try {
     assert.equal(importedEvidence.run.tester, 'CI capture tester')
     assert.match(importedEvidence.run.artifactSha256, /^[a-f0-9]{64}$/u)
     assert.ok(importedEvidence.run.artifactSize > 0)
+    assert.equal(importedEvidence.run.expectedArtifactSha256, artifact.sha256)
+    assert.equal(importedEvidence.run.expectedArtifactSize, artifact.size)
+    assert.equal(importedEvidence.run.artifactMatchesExpected, true)
 
     const releaseReady = run(verifyScript, importTmp, ['--require-release-ready'])
     assert.equal(releaseReady.status, 0, `${releaseReady.stdout}\n${releaseReady.stderr}`)

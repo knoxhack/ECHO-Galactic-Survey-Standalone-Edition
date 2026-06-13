@@ -24,6 +24,15 @@ const REQUIRED_SESSIONS = [
   'no_crash_review'
 ]
 
+function isRealValue(value) {
+  if (value === null || value === undefined) return false
+  if (typeof value === 'number') return Number.isFinite(value) && value > 0
+  if (typeof value === 'boolean') return value === true
+  if (typeof value !== 'string') return true
+  const normalized = value.trim()
+  return normalized !== '' && normalized !== 'TBD' && normalized !== 'template' && !normalized.startsWith('1970-01-01')
+}
+
 function parseArgs(argv) {
   const args = {
     root: process.cwd(),
@@ -140,6 +149,18 @@ async function validateRealEvidence({ root, manifest, evidencePath, blockers, re
       blockers.push(`manualEvidence.run.${field} must contain real capture data.`)
     }
   }
+  for (const field of ['expectedArtifactSha256', 'expectedArtifactSize', 'artifactMatchesExpected']) {
+    if (!isRealValue(evidence.run?.[field])) blockers.push(`manualEvidence.run.${field} must prove the artifact matches Release Index download evidence.`)
+  }
+  if (evidence.run?.artifactMatchesExpected !== true) blockers.push('manualEvidence.run.artifactMatchesExpected must be true.')
+  if (evidence.run?.expectedArtifactSha256 && evidence.run?.artifactSha256 && evidence.run.expectedArtifactSha256 !== evidence.run.artifactSha256) {
+    blockers.push('manualEvidence.run.expectedArtifactSha256 must match artifactSha256.')
+  }
+  if (evidence.run?.expectedArtifactSize && evidence.run?.artifactSize && Number(evidence.run.expectedArtifactSize) !== Number(evidence.run.artifactSize)) {
+    blockers.push('manualEvidence.run.expectedArtifactSize must match artifactSize.')
+  }
+  if (!evidence.importedCapture?.captureManifest) blockers.push('manualEvidence.importedCapture.captureManifest is required.')
+  if (!evidence.importedCapture?.expectedDownloadedAsset) blockers.push('manualEvidence.importedCapture.expectedDownloadedAsset is required.')
   for (const listName of ['supportingFiles', 'screenshots', 'logs', 'saveSnapshots']) {
     for (const relPath of evidence[listName] ?? []) {
       const file = resolveInside(root, relPath)
@@ -196,6 +217,7 @@ const report = {
   manualEvidence: manualEvidence ? {
     found: true,
     claims: manualEvidence.claims,
+    artifactMatchesExpected: manualEvidence.run?.artifactMatchesExpected === true,
     releaseGates: manualEvidence.releaseGates?.map((gate) => ({ id: gate.id, satisfied: gate.satisfied, evidenceSource: gate.evidenceSource })),
     sessions: manualEvidence.sessions?.map((session) => session.id)
   } : null,

@@ -51,7 +51,7 @@ Options:
   --template <path>          Evidence template path.
   --evidence <path>          Evidence output path.
   --capture-root <path>      Folder containing the real capture files.
-  --artifact <path>          Published pack artifact used for the run.
+  --artifact <path>          Published pack artifact used for the run. Must match capture-manifest.json.
   --tester <name>            Tester or device/run identifier.
   --world-or-profile <name>  World/profile name used for the run.
   --started-at <iso>         Real run start timestamp.
@@ -123,6 +123,14 @@ async function fileExists(filePath) {
   }
 }
 
+async function readJsonOrNull(filePath) {
+  try {
+    return JSON.parse(await fs.readFile(filePath, 'utf8'))
+  } catch {
+    return null
+  }
+}
+
 async function sha256File(filePath) {
   return crypto.createHash('sha256').update(await fs.readFile(filePath)).digest('hex')
 }
@@ -152,6 +160,30 @@ function sourceRelForEvidencePath(relPath) {
   const prefix = `${EVIDENCE_ROOT}/`
   if (!normalized.startsWith(prefix)) return null
   return normalized.slice(prefix.length)
+}
+
+async function loadCaptureManifest(captureRoot, template, artifact, blockers) {
+  const manifestPath = path.join(captureRoot, 'capture-manifest.json')
+  const manifest = await readJsonOrNull(manifestPath)
+  if (!manifest) {
+    blockers.push('capture-manifest.json is missing; run prepare-manual-gameplay-capture.mjs before the manual run.')
+    return null
+  }
+  if (manifest.schemaVersion !== 'echo.galactic_survey.manual-gameplay-capture-manifest.v1') {
+    blockers.push('capture-manifest.json schemaVersion mismatch.')
+  }
+  if (manifest.packId !== template?.packId) {
+    blockers.push(`capture-manifest.json packId ${manifest.packId} does not match template ${template?.packId}.`)
+  }
+  const expected = manifest.artifact?.expectedDownloadedAsset
+  if (!expected) {
+    blockers.push('capture-manifest.json must include artifact.expectedDownloadedAsset from Release Index download evidence.')
+  } else if (artifact) {
+    if (artifact.name !== expected.name) blockers.push(`artifact file name ${artifact.name} does not match prepared asset ${expected.name}.`)
+    if (Number(artifact.size) !== Number(expected.size)) blockers.push(`artifact size ${artifact.size} does not match prepared asset ${expected.size}.`)
+    if (artifact.sha256 !== expected.sha256) blockers.push(`artifact SHA-256 ${artifact.sha256} does not match prepared asset ${expected.sha256}.`)
+  }
+  return { path: manifestPath, manifest }
 }
 
 async function validateCaptureFile({ source, destination, blockers }) {
@@ -206,8 +238,9 @@ function buildSessions(template, start) {
   })
 }
 
-function buildEvidence({ template, artifact, artifactSha256, artifactSize, args, startedAt }) {
+function buildEvidence({ template, artifact, artifactSha256, artifactSize, args, startedAt, captureManifest }) {
   const claims = Object.fromEntries(REQUIRED_CLAIMS.map((claim) => [claim, true]))
+  const expected = captureManifest?.manifest?.artifact?.expectedDownloadedAsset ?? null
   return {
     ...template,
     generatedAt: new Date().toISOString(),
@@ -224,8 +257,16 @@ function buildEvidence({ template, artifact, artifactSha256, artifactSize, args,
     run: {
       ...(template.run ?? {}),
       tester: args.tester,
+      artifactAsset: expected?.name ?? template.run?.artifactAsset,
       artifactSha256,
       artifactSize,
+      expectedArtifactSha256: expected?.sha256 ?? null,
+      expectedArtifactSize: expected?.size ?? null,
+      artifactMatchesExpected: Boolean(expected)
+        && artifact.name === expected.name
+        && artifactSha256 === expected.sha256
+        && Number(artifactSize) === Number(expected.size),
+      releaseTag: captureManifest?.manifest?.releaseTag ?? template.run?.releaseTag,
       worldOrProfile: args.worldOrProfile,
       installedFrom: args.installedFrom,
       startedAt: startedAt.toISOString()
@@ -236,6 +277,8 @@ function buildEvidence({ template, artifact, artifactSha256, artifactSize, args,
       artifact: artifact.path,
       artifactSha256,
       artifactSize,
+      captureManifest: captureManifest?.path ?? null,
+      expectedDownloadedAsset: expected,
       importedAt: new Date().toISOString()
     }
   }
@@ -264,9 +307,11 @@ async function main() {
   const artifactStat = await fs.stat(args.artifact).catch(() => null)
   const artifact = artifactStat ? {
     path: args.artifact,
+    name: path.basename(args.artifact),
     size: artifactStat.size,
     sha256: await sha256File(args.artifact)
   } : null
+  const captureManifest = await loadCaptureManifest(args.captureRoot, template, artifact, blockers)
 
   const evidenceExists = evidencePath.error ? false : await fileExists(evidencePath.target)
   if (evidenceExists && !args.force) blockers.push(`${args.evidence} already exists; pass --force to replace it with imported capture evidence.`)
@@ -295,6 +340,11 @@ async function main() {
     evidencePath: args.evidence,
     captureRoot: args.captureRoot,
     artifact,
+    captureManifest: captureManifest ? {
+      path: captureManifest.path,
+      packId: captureManifest.manifest?.packId,
+      artifactMatchesExpected: captureManifest.manifest?.artifact?.matchesExpected === true
+    } : null,
     copyPlan,
     blockers
   }
@@ -308,7 +358,7 @@ async function main() {
     await fs.mkdir(path.dirname(evidencePath.target), { recursive: true })
     await fs.writeFile(
       evidencePath.target,
-      `${JSON.stringify(buildEvidence({ template, artifact, artifactSha256: artifact.sha256, artifactSize: artifact.size, args, startedAt }), null, 2)}\n`,
+      `${JSON.stringify(buildEvidence({ template, artifact, artifactSha256: artifact.sha256, artifactSize: artifact.size, args, startedAt, captureManifest }), null, 2)}\n`,
       'utf8'
     )
   }

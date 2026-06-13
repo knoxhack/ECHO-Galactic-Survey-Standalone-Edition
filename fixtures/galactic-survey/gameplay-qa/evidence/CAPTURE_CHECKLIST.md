@@ -2,6 +2,8 @@
 
 Capture real evidence before any public alpha handoff:
 
+- Prepare a checksum-bound capture folder with
+  `node scripts\prepare-manual-gameplay-capture.mjs --tester <id> --world-or-profile <profile> --started-at <iso>`.
 - Fresh profile/world creation.
 - First 30-minute route completion.
 - First 2-hour route completion.
@@ -17,4 +19,5 @@ Capture real evidence before any public alpha handoff:
 
 Do not replace missing evidence with placeholder screenshots, empty logs, or
 template notes. The importer rejects template markers, placeholder text,
-non-PNG screenshots, non-ZIP save snapshots, and accidental overwrites.
+non-PNG screenshots, non-ZIP save snapshots, artifact mismatches, missing
+capture manifests, and accidental overwrites.

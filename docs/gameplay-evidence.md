@@ -55,10 +55,17 @@ and `ECHO-Release-Index/release-readiness/galactic-survey-electron-ui-smoke.json
 
 ## Verification
 
-Initialize the evidence capture layout before the manual run:
+Prepare the evidence capture folder before the manual run. This command reads
+the Release Index download smoke evidence, resolves the downloaded public
+prerelease pack zip, verifies its checksum, then writes a fail-closed capture
+folder with `capture-manifest.json`, note templates, and the exact import
+command:
 
 ```powershell
-node scripts\init-manual-gameplay-evidence.mjs
+node scripts\prepare-manual-gameplay-capture.mjs `
+  --tester "tester-or-device-id" `
+  --world-or-profile "fresh profile name" `
+  --started-at "2026-06-13T10:30:00Z"
 ```
 
 Import a completed real capture bundle after the run:
@@ -90,10 +97,12 @@ The capture root must contain these real files, using the same relative paths:
 - `saves/survey-array-save.zip`
 
 The importer copies those files into this repo's evidence folder, computes the
-pack artifact SHA-256 and size, marks the release gates true, and still leaves
+pack artifact SHA-256 and size, verifies it against the prepared Release Index
+download evidence, marks the release gates true, and still leaves
 `verify-manual-gameplay-evidence.mjs --require-release-ready` as the authority.
-It rejects template markers, placeholder text, non-PNG screenshots, non-ZIP save
-snapshots, and accidental overwrites unless `--force` is supplied.
+It requires `capture-manifest.json` from the prepare step and rejects template
+markers, placeholder text, non-PNG screenshots, non-ZIP save snapshots, artifact
+mismatches, and accidental overwrites unless `--force` is supplied.
 
 Template-mode CI check:
 

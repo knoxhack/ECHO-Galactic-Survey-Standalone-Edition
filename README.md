@@ -30,5 +30,7 @@ artifact, launcher install flow, update flow, repair flow, rollback flow, first
 30-minute playthrough, first 2-hour playthrough, and Survey Array completion
 evidence all pass.
 
-Gameplay evidence must follow `docs/gameplay-evidence.md` and the template at
-`fixtures/galactic-survey/gameplay-qa/manual-evidence.template.json`.
+Gameplay evidence must follow `docs/gameplay-evidence.md`. Start with
+`scripts/prepare-manual-gameplay-capture.mjs` so the manual run is bound to the
+Release Index downloaded artifact before `scripts/import-manual-gameplay-capture.mjs`
+can promote any local capture files into release evidence.

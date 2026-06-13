@@ -49,6 +49,7 @@ const requiredDocs = [
   'release-manifest.template.json',
   'scripts/validate-galactic-survey-edition.mjs',
   'scripts/init-manual-gameplay-evidence.mjs',
+  'scripts/prepare-manual-gameplay-capture.mjs',
   'scripts/import-manual-gameplay-capture.mjs',
   'scripts/verify-manual-gameplay-evidence.mjs',
   'scripts/test-manual-gameplay-evidence-tools.mjs',
