@@ -10,7 +10,7 @@
   "moduleSourcePattern": "<module>-<version>-sources.jar",
   "moduleRequirements": [
     {
-      "id": "echocore",
+      "id": "echoadaptercore",
       "version": ">=1.0.0"
     },
     {
@@ -18,15 +18,12 @@
       "version": ">=0.1.0"
     },
     {
-      "id": "echonetcore",
-      "version": ">=1.0.0"
+      "id": "echoblockworks",
+      "version": ">=1.0.0",
+      "required": true
     },
     {
-      "id": "echoadaptercore",
-      "version": ">=1.0.0"
-    },
-    {
-      "id": "echoruntimeguard",
+      "id": "echocore",
       "version": ">=1.0.0"
     },
     {
@@ -34,20 +31,17 @@
       "version": ">=1.0.0"
     },
     {
-      "id": "echoorbitalremnants",
-      "version": ">=1.0.0"
-    },
-    {
-      "id": "echovehiclecore",
-      "version": ">=1.0.0"
+      "id": "echogalacticsurveyprotocol",
+      "version": "0.1.0"
     },
     {
       "id": "echoholomap",
       "version": ">=1.0.0"
     },
     {
-      "id": "echoterminal",
-      "version": ">=1.0.0"
+      "id": "echohudcore",
+      "version": ">=1.0.0",
+      "required": true
     },
     {
       "id": "echoindex",
@@ -58,7 +52,19 @@
       "version": ">=1.0.0"
     },
     {
+      "id": "echologisticsnetwork",
+      "version": ">=1.0.0"
+    },
+    {
       "id": "echomissioncore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echonetcore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echoorbitalremnants",
       "version": ">=1.0.0"
     },
     {
@@ -66,20 +72,39 @@
       "version": ">=1.0.0"
     },
     {
-      "id": "echologisticsnetwork",
+      "id": "echoprogressioncore",
       "version": ">=1.0.0"
     },
     {
-      "id": "echoprogressioncore",
+      "id": "echoruntimeguard",
       "version": ">=1.0.0"
+    },
+    {
+      "id": "echoscreencore",
+      "version": ">=1.0.0",
+      "required": true
     },
     {
       "id": "echosoundcore",
       "version": ">=1.0.0"
     },
     {
-      "id": "echogalacticsurveyprotocol",
-      "version": "0.1.0"
+      "id": "echoterminal",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echothemecore",
+      "version": ">=1.3.0",
+      "required": true
+    },
+    {
+      "id": "echovehiclecore",
+      "version": ">=1.0.0"
+    },
+    {
+      "id": "echoworldcore",
+      "version": ">=1.0.0",
+      "required": true
     }
   ],
   "requiredModuleDescriptors": [
