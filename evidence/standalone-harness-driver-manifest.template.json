@@ -7,7 +7,8 @@
     "first_30_minutes",
     "first_2_hours",
     "survey_array_completion",
-    "launcher_install_update_repair_rollback"
+    "save_reload_verification",
+    "no_crash_review"
   ],
   "requiredContracts": [
     "data/echogalacticsurveyprotocol/galacticsurvey/progression/first_30_minutes.json",

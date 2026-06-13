@@ -7,8 +7,9 @@ Capture real evidence before any public alpha handoff:
 - First 2-hour route completion.
 - Survey Array completion.
 - Save/reload verification.
-- Launcher install, update, repair, and rollback.
 - No-crash log review.
+- Current Release Index launcher lifecycle reports are present for install,
+  update, repair, and rollback.
 
 Do not replace missing evidence with placeholder screenshots, empty logs, or
 template notes.

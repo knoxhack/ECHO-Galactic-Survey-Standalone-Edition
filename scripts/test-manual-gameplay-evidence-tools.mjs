@@ -28,7 +28,6 @@ async function copySeedFiles(root) {
     'first-30-minutes-notes.template.md',
     'first-2-hours-notes.template.md',
     'survey-array-verification.template.md',
-    'launcher-flow-review.template.md',
     'no-crash-review.template.md'
   ]) {
     const relPath = path.join(noteTemplateRoot, name)
@@ -45,7 +44,7 @@ try {
   assert.equal(dryRun.status, 0, `${dryRun.stdout}\n${dryRun.stderr}`)
   const dryRunReport = JSON.parse(dryRun.stdout)
   assert.equal(dryRunReport.status, 'PASS')
-  assert.equal(dryRunReport.noteFiles.length, 6)
+  assert.equal(dryRunReport.noteFiles.length, 5)
 
   const init = run(initScript, tmp)
   assert.equal(init.status, 0, `${init.stdout}\n${init.stderr}`)

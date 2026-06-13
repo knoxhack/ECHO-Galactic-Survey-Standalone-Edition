@@ -67,7 +67,6 @@ const requiredDocs = [
   'fixtures/galactic-survey/gameplay-qa/evidence/templates/first-30-minutes-notes.template.md',
   'fixtures/galactic-survey/gameplay-qa/evidence/templates/first-2-hours-notes.template.md',
   'fixtures/galactic-survey/gameplay-qa/evidence/templates/survey-array-verification.template.md',
-  'fixtures/galactic-survey/gameplay-qa/evidence/templates/launcher-flow-review.template.md',
   'fixtures/galactic-survey/gameplay-qa/evidence/templates/no-crash-review.template.md'
 ]
 
@@ -94,8 +93,7 @@ const requiredClaims = [
   'realSurveyArrayPlaythrough',
   'freshWorldCreated',
   'saveReloadVerified',
-  'noCrashEvidence',
-  'launcherInstallUpdateRepairRollback'
+  'noCrashEvidence'
 ]
 const requiredSessionIds = [
   'fresh_world_creation',
@@ -103,7 +101,6 @@ const requiredSessionIds = [
   'first_2_hours',
   'survey_array_completion',
   'save_reload_verification',
-  'launcher_flow_verification',
   'no_crash_review'
 ]
 const requiredClaimByProof = new Map([
@@ -119,8 +116,7 @@ const requiredClaimByProof = new Map([
   ['manual:real_survey_array_playthrough', 'realSurveyArrayPlaythrough'],
   ['manual:fresh_world_created', 'freshWorldCreated'],
   ['manual:save_reload_verified', 'saveReloadVerified'],
-  ['manual:no_crash_evidence', 'noCrashEvidence'],
-  ['launcher:install_update_repair_rollback', 'launcherInstallUpdateRepairRollback']
+  ['manual:no_crash_evidence', 'noCrashEvidence']
 ])
 const canonicalReleaseGatesPath = path.join(
   moduleRoot,
@@ -134,7 +130,7 @@ if (releaseGateContract.schemaVersion !== 'echo.galactic_survey.release-gates.co
   fail('release gate contract schema mismatch.')
 }
 if (releaseGateContract.packId !== 'galactic-survey') fail('release gate contract packId must be galactic-survey.')
-if (releaseGateContract.gates?.length !== 14) fail('release gate contract must define 14 gates.')
+if (releaseGateContract.gates?.length !== 13) fail('release gate contract must define 13 gates.')
 for (const claim of requiredClaims) {
   if (template.claims?.[claim] !== false) fail(`manual evidence template claim ${claim} must be false.`)
 }

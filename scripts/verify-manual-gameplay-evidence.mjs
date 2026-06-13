@@ -13,8 +13,7 @@ const REQUIRED_CLAIMS = [
   'realSurveyArrayPlaythrough',
   'freshWorldCreated',
   'saveReloadVerified',
-  'noCrashEvidence',
-  'launcherInstallUpdateRepairRollback'
+  'noCrashEvidence'
 ]
 const REQUIRED_SESSIONS = [
   'fresh_world_creation',
@@ -22,7 +21,6 @@ const REQUIRED_SESSIONS = [
   'first_2_hours',
   'survey_array_completion',
   'save_reload_verification',
-  'launcher_flow_verification',
   'no_crash_review'
 ]
 
@@ -81,8 +79,8 @@ function validateReleaseGateContract({ contract, blockers }) {
   if (contract.packId !== 'galactic-survey') {
     blockers.push('release gate contract packId must be galactic-survey.')
   }
-  if (!Array.isArray(contract.gates) || contract.gates.length !== 14) {
-    blockers.push('release gate contract must contain 14 gates.')
+  if (!Array.isArray(contract.gates) || contract.gates.length !== 13) {
+    blockers.push('release gate contract must contain 13 gates.')
     return []
   }
   const seen = new Set()

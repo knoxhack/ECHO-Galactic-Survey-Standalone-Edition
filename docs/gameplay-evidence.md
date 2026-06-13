@@ -15,7 +15,9 @@ references. Every claim must be true:
 - `freshWorldCreated`: the run starts from a fresh Galactic Survey profile.
 - `saveReloadVerified`: the profile is saved, closed, reopened, and still valid.
 - `noCrashEvidence`: logs and support review show no blocking crash.
-- `launcherInstallUpdateRepairRollback`: install, update, repair, and rollback all pass.
+
+Launcher install/update/repair/rollback evidence is verified by the Release Index
+launcher lifecycle reports, not by this manual gameplay file.
 
 ## Required Sessions
 
@@ -24,7 +26,6 @@ references. Every claim must be true:
 - `first_2_hours`
 - `survey_array_completion`
 - `save_reload_verification`
-- `launcher_flow_verification`
 - `no_crash_review`
 
 ## Required Release Gates
@@ -47,7 +48,10 @@ Template evidence keeps every gate false.
 - `fresh_world_created`
 - `save_reload_verified`
 - `no_crash_evidence`
-- `launcher_install_update_repair_rollback`
+
+Launcher lifecycle evidence remains a public promotion requirement, but it is
+owned by `ECHO-Release-Index/release-readiness/galactic-survey-launcher-lifecycle-smoke.json`
+and `ECHO-Release-Index/release-readiness/galactic-survey-electron-ui-smoke.json`.
 
 ## Verification
 

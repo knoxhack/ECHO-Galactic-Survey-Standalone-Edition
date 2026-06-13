@@ -8,8 +8,7 @@
     "realSurveyArrayPlaythrough": false,
     "freshWorldCreated": false,
     "saveReloadVerified": false,
-    "noCrashEvidence": false,
-    "launcherInstallUpdateRepairRollback": false
+    "noCrashEvidence": false
   },
   "releaseGates": [
     { "id": "probe_launch_works", "proof": "probe:starter_probe", "requiredClaim": "realFirst30Playthrough", "satisfied": false, "evidenceSource": "template" },
@@ -24,15 +23,13 @@
     { "id": "real_survey_array_playthrough", "proof": "manual:real_survey_array_playthrough", "requiredClaim": "realSurveyArrayPlaythrough", "satisfied": false, "evidenceSource": "template" },
     { "id": "fresh_world_created", "proof": "manual:fresh_world_created", "requiredClaim": "freshWorldCreated", "satisfied": false, "evidenceSource": "template" },
     { "id": "save_reload_verified", "proof": "manual:save_reload_verified", "requiredClaim": "saveReloadVerified", "satisfied": false, "evidenceSource": "template" },
-    { "id": "no_crash_evidence", "proof": "manual:no_crash_evidence", "requiredClaim": "noCrashEvidence", "satisfied": false, "evidenceSource": "template" },
-    { "id": "launcher_install_update_repair_rollback", "proof": "launcher:install_update_repair_rollback", "requiredClaim": "launcherInstallUpdateRepairRollback", "satisfied": false, "evidenceSource": "template" }
+    { "id": "no_crash_evidence", "proof": "manual:no_crash_evidence", "requiredClaim": "noCrashEvidence", "satisfied": false, "evidenceSource": "template" }
   ],
   "supportingFiles": [
     "fixtures/galactic-survey/gameplay-qa/evidence/fresh-world-notes.md",
     "fixtures/galactic-survey/gameplay-qa/evidence/first-30-minutes-notes.md",
     "fixtures/galactic-survey/gameplay-qa/evidence/first-2-hours-notes.md",
     "fixtures/galactic-survey/gameplay-qa/evidence/survey-array-verification.md",
-    "fixtures/galactic-survey/gameplay-qa/evidence/launcher-flow-review.md",
     "fixtures/galactic-survey/gameplay-qa/evidence/no-crash-review.md"
   ],
   "screenshots": [
@@ -42,8 +39,7 @@
     "fixtures/galactic-survey/gameplay-qa/evidence/screenshots/survey-array-complete.png"
   ],
   "logs": [
-    "fixtures/galactic-survey/gameplay-qa/evidence/logs/client-playthrough.log",
-    "fixtures/galactic-survey/gameplay-qa/evidence/logs/launcher-install-update-repair-rollback.log"
+    "fixtures/galactic-survey/gameplay-qa/evidence/logs/client-playthrough.log"
   ],
   "saveSnapshots": [
     "fixtures/galactic-survey/gameplay-qa/evidence/saves/first-30-minutes-save.zip",
