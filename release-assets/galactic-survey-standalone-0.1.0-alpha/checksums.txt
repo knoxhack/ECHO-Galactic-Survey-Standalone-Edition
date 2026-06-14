@@ -1,3 +1,4 @@
-100562f0fc39e73e202b5bc03691b9aeeda73c1ddaf3dddaf0d9c812e8e2467c  galactic-survey-standalone-edition-alpha-0.1.0.pack.json
-41c141ba7568fe6f67ca141c5c6c14ad628150d18414da75336b015adde8e478  galactic-survey-standalone-edition-0.1.0.zip
-faf77253f1bd1ed425091d30fc1e4a8c4de29ab738fab2f229b02b34b2af6377  echo-release.json
+﻿d7ef00d306b6559a346dda0d420261600db88008ac1e7381905580d2e98e7f8f  galactic-survey-standalone-edition-alpha-0.1.0.pack.json
+cb2d353b8fb52f96bc9baa6ecff02bec998f37b1c9ac025f861ff6d0a7acdf3d  galactic-survey-standalone-edition-0.1.0.zip
+8c1d09b07e60dc8a1f28ba44c94872c1ece793a76da903add4bb467cb8117ea0  echo-release.json
+4f5ee7b7c6e36bdb878f948e7865cf2f0ee6c65cbf680d5dfeb51ab5afef8d47  galactic-survey-standalone-edition-alpha-0.1.0.pack.json
