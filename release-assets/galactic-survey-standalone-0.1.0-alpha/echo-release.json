@@ -4,15 +4,15 @@
   "name": "Galactic Survey Standalone Edition",
   "version": "0.1.0",
   "channel": "alpha",
-  "releasedAt": "2026-06-14T00:31:21.039Z",
+  "releasedAt": "2026-06-14T01:26:55.161Z",
   "manifestAsset": "galactic-survey-standalone-edition-alpha-0.1.0.pack.json",
-  "manifestSha256": "1ecb03c2bd838abdbf019cf839a1d73c0a14a2eac322c320640f8966e4507d3a",
+  "manifestSha256": "100562f0fc39e73e202b5bc03691b9aeeda73c1ddaf3dddaf0d9c812e8e2467c",
   "manifestSize": 29377,
   "artifactMode": "zip",
   "artifactAsset": "galactic-survey-standalone-edition-0.1.0.zip",
-  "artifactSha256": "5f1415d31b2ca85114ceb88743394299449a5dabf59fd70f79828fadc1b138fb",
-  "artifactSize": 4852,
-  "moduleRelease": "modules-all-official-modpacks-install-fix-20260613",
+  "artifactSha256": "41c141ba7568fe6f67ca141c5c6c14ad628150d18414da75336b015adde8e478",
+  "artifactSize": 75871971,
+  "moduleRelease": "modules-all-official-modpacks-runtime-fix-20260614",
   "packs": [
     {
       "pack": "galactic-survey-standalone-edition",
@@ -27,18 +27,180 @@
     {
       "name": "galactic-survey-standalone-edition-alpha-0.1.0.pack.json",
       "role": "pack-manifest",
-      "sha256": "1ecb03c2bd838abdbf019cf839a1d73c0a14a2eac322c320640f8966e4507d3a",
-      "size": 29377
+      "sha256": "100562f0fc39e73e202b5bc03691b9aeeda73c1ddaf3dddaf0d9c812e8e2467c",
+      "size": 28095
     },
     {
       "name": "galactic-survey-standalone-edition-0.1.0.zip",
       "role": "pack-artifact",
-      "sha256": "5f1415d31b2ca85114ceb88743394299449a5dabf59fd70f79828fadc1b138fb",
-      "size": 4852
+      "sha256": "41c141ba7568fe6f67ca141c5c6c14ad628150d18414da75336b015adde8e478",
+      "size": 75871971
+    },
+    {
+      "name": "echoadaptercore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoadaptercore-1.0.0-standalone.jar",
+      "sha256": "f8b2356c2867f42a7b03035870486e135a732ee83a257a3495090e490e347175",
+      "size": 944417
+    },
+    {
+      "name": "echoaddonapi-0.1.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoaddonapi-0.1.0-standalone.jar",
+      "sha256": "b4ea436e538dde74aa29261d4cfd42c5d427926d1398a576a76a918b4ab56bf7",
+      "size": 59965
+    },
+    {
+      "name": "echocontentcore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echocontentcore-1.0.0-standalone.jar",
+      "sha256": "334d815405d4c9abca55e4294790d49e25b4c7fa98810b1c2773a95425184570",
+      "size": 33258
+    },
+    {
+      "name": "echocore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echocore-1.0.0-standalone.jar",
+      "sha256": "e4989e5087179d41362504faae6aa91e2d9064a17ca674c89671b2ad2920a891",
+      "size": 368893
+    },
+    {
+      "name": "echogalacticcore-0.1.0-native-alpha-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echogalacticcore-0.1.0-native-alpha-standalone.jar",
+      "sha256": "c1b2403c052a9d5fc47960f9954cd5d126e28b3ba85c62e4b12ddadca07c00a3",
+      "size": 12074779
+    },
+    {
+      "name": "echogalacticsurveyprotocol-0.1.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echogalacticsurveyprotocol-0.1.0-standalone.jar",
+      "sha256": "e0b918a8d8336ee2944986e35e9a74658d7061b0db4a62cfde6e63788302d9fb",
+      "size": 123112
+    },
+    {
+      "name": "echoholomap-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoholomap-1.0.0-standalone.jar",
+      "sha256": "f1fe84488044b9d310152ccf1476f9eb657a332c0787b697be5d9999146046cb",
+      "size": 1496602
+    },
+    {
+      "name": "echoindex-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoindex-1.0.0-standalone.jar",
+      "sha256": "c02cefd31551376e9fc43b026fbf6faf1f2e4ffd8fda110d266ff740e54bc3db",
+      "size": 586916
+    },
+    {
+      "name": "echolens-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echolens-1.0.0-standalone.jar",
+      "sha256": "63cba1ad0d28d846c1a39a3c63e85a421729157b4ad24f58cb299f243f71d0b2",
+      "size": 215156
+    },
+    {
+      "name": "echologisticsnetwork-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echologisticsnetwork-1.0.0-standalone.jar",
+      "sha256": "36e7630028d9f2b84f288876d8cc2b1214876099bb876a588755dce36585e52b",
+      "size": 3672994
+    },
+    {
+      "name": "echomissioncore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echomissioncore-1.0.0-standalone.jar",
+      "sha256": "bdc49ff2239e75f9fe8018823d2b47c4c1d7d4a9fc3c424c73e8f647fc72a455",
+      "size": 103747
+    },
+    {
+      "name": "echonetcore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echonetcore-1.0.0-standalone.jar",
+      "sha256": "7a293a81fc5719adb3e022352505d30f5a61b516ac292e7b4c3961c8c15b9fe3",
+      "size": 68877
+    },
+    {
+      "name": "echoorbitalremnants-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoorbitalremnants-1.0.0-standalone.jar",
+      "sha256": "291a83fb878d233d79ffe470140e6d9bb6fa3b01eb685967303582368ffa8452",
+      "size": 14483849
+    },
+    {
+      "name": "echoplatformcore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoplatformcore-1.0.0-standalone.jar",
+      "sha256": "73b166174099e4997f1fd129306050a230b977fb00fc1b92e08237e81cd37061",
+      "size": 46626
+    },
+    {
+      "name": "echopowergrid-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echopowergrid-1.0.0-standalone.jar",
+      "sha256": "c7e6d07c4ab1f547f133cb027b2acbedb44199ab08dfed32b9c2ed40a49fadb9",
+      "size": 7185421
+    },
+    {
+      "name": "echoprogressioncore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoprogressioncore-1.0.0-standalone.jar",
+      "sha256": "5430c028fc67adb5d3052de30a3fca00a744e19a69dcce8e97e9ad01c66d315d",
+      "size": 46378
+    },
+    {
+      "name": "echorecipecore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echorecipecore-1.0.0-standalone.jar",
+      "sha256": "f448d1d766df7d98933b564d67fcc071342b136e64198b1499946b1f3531c701",
+      "size": 37905
+    },
+    {
+      "name": "echoruntimeguard-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoruntimeguard-1.0.0-standalone.jar",
+      "sha256": "927979d825103b3704f2e5481a598df6ee90542cb5efd6dc02bdab30cf701b43",
+      "size": 127439
+    },
+    {
+      "name": "echoschemacore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoschemacore-1.0.0-standalone.jar",
+      "sha256": "8d95627cb483f60184490aa5d809628848b4b40cf02e11494b2e5030187d888b",
+      "size": 30695
+    },
+    {
+      "name": "echosoundcore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echosoundcore-1.0.0-standalone.jar",
+      "sha256": "d0ceadd62374ff5a9fa4911a2a9bc0276e4b0ed3ac033a8bc5f1cc2bd7e2768b",
+      "size": 11079841
+    },
+    {
+      "name": "echoterminal-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echoterminal-1.0.0-standalone.jar",
+      "sha256": "4453978b180ef4b2df6a4e81caae9e1618f4772e1d3f519a4af1573f93aa3c02",
+      "size": 22986185
+    },
+    {
+      "name": "echovalidationcore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echovalidationcore-1.0.0-standalone.jar",
+      "sha256": "cb225e62372b01b27d853d42aadd8bf0d65def28b9edc8891e4d8826ffcd8170",
+      "size": 41988
+    },
+    {
+      "name": "echovehiclecore-1.0.0-standalone.jar",
+      "role": "pack-file",
+      "path": "mods/echovehiclecore-1.0.0-standalone.jar",
+      "sha256": "2f672654ad446ccf837c53eaf5cea528a0c2bc23bac69b43f3c7876efd8d1e18",
+      "size": 21788
     }
   ],
   "notes": [
     "Rebuilt galactic-survey-standalone-edition against approved module release modules-all-official-modpacks-install-fix-20260613.",
     "Manifest files contain GitHub HTTPS URLs for every module artifact used by install, repair, and update."
-  ]
+  ],
+  "moduleSourceRevision": "0beb164098526cf791cc6c649704e6a434769a17"
 }
