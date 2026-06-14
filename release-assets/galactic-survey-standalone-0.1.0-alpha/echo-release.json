@@ -1,0 +1,44 @@
+{
+  "formatVersion": 2,
+  "pack": "galactic-survey-standalone-edition",
+  "name": "Galactic Survey Standalone Edition",
+  "version": "0.1.0",
+  "channel": "alpha",
+  "releasedAt": "2026-06-14T00:31:21.039Z",
+  "manifestAsset": "galactic-survey-standalone-edition-alpha-0.1.0.pack.json",
+  "manifestSha256": "1ecb03c2bd838abdbf019cf839a1d73c0a14a2eac322c320640f8966e4507d3a",
+  "manifestSize": 29377,
+  "artifactMode": "zip",
+  "artifactAsset": "galactic-survey-standalone-edition-0.1.0.zip",
+  "artifactSha256": "5f1415d31b2ca85114ceb88743394299449a5dabf59fd70f79828fadc1b138fb",
+  "artifactSize": 4852,
+  "moduleRelease": "modules-all-official-modpacks-install-fix-20260613",
+  "packs": [
+    {
+      "pack": "galactic-survey-standalone-edition",
+      "name": "Galactic Survey Standalone Edition",
+      "version": "0.1.0",
+      "channel": "alpha",
+      "manifestAsset": "galactic-survey-standalone-edition-alpha-0.1.0.pack.json",
+      "artifactAsset": "galactic-survey-standalone-edition-0.1.0.zip"
+    }
+  ],
+  "assets": [
+    {
+      "name": "galactic-survey-standalone-edition-alpha-0.1.0.pack.json",
+      "role": "pack-manifest",
+      "sha256": "1ecb03c2bd838abdbf019cf839a1d73c0a14a2eac322c320640f8966e4507d3a",
+      "size": 29377
+    },
+    {
+      "name": "galactic-survey-standalone-edition-0.1.0.zip",
+      "role": "pack-artifact",
+      "sha256": "5f1415d31b2ca85114ceb88743394299449a5dabf59fd70f79828fadc1b138fb",
+      "size": 4852
+    }
+  ],
+  "notes": [
+    "Rebuilt galactic-survey-standalone-edition against approved module release modules-all-official-modpacks-install-fix-20260613.",
+    "Manifest files contain GitHub HTTPS URLs for every module artifact used by install, repair, and update."
+  ]
+}
