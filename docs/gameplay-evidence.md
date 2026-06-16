@@ -2,6 +2,9 @@
 
 Galactic Survey Standalone Edition cannot be promoted from preview metadata until
 real manual gameplay evidence exists for the public `0.1.0` alpha package.
+The cross-platform public-alpha gameplay gate is
+`ECHO-Release-Index/release-readiness/gameplay-acceptance-matrix.json` with
+schema `echo.gameplay.acceptance.v1`.
 
 ## Required Claims
 
