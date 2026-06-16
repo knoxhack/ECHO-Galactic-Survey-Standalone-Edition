@@ -4,15 +4,15 @@
   "name": "Galactic Survey Standalone Edition",
   "version": "0.1.1",
   "channel": "alpha",
-  "releasedAt": "2026-06-16T10:10:22.335Z",
+  "releasedAt": "2026-06-16T15:37:33.688Z",
   "manifestAsset": "galactic-survey-standalone-edition-alpha-0.1.1.pack.json",
-  "manifestSha256": "8ac50f1c3a7740211eb9a615d297622a1036e5ab184c54812af28c35df8d6f34",
-  "manifestSize": 55007,
+  "manifestSha256": "635317b1605cea2628b1c7d8a8a78f2e6c3a6808890673a11be82c8b4e8c75dd",
+  "manifestSize": 53667,
   "artifactMode": "zip",
   "artifactAsset": "galactic-survey-standalone-edition-0.1.1.zip",
-  "artifactSha256": "008cc9a77e696f166bb50db19af2a1047bdd06bb1453632f392e5d8f097f0e93",
-  "artifactSize": 145244636,
-  "moduleRelease": "release-index-current-module-artifacts-20260616",
+  "artifactSha256": "5ac5bc019344c7471594d9d5e920d6a130fbd19825f8f4d9cca284253b9fc3ff",
+  "artifactSize": 145241857,
+  "moduleRelease": "modules-canonical-full-20260616",
   "packs": [
     {
       "pack": "galactic-survey-standalone-edition",
@@ -27,306 +27,306 @@
     {
       "name": "galactic-survey-standalone-edition-alpha-0.1.1.pack.json",
       "role": "pack-manifest",
-      "sha256": "8ac50f1c3a7740211eb9a615d297622a1036e5ab184c54812af28c35df8d6f34",
-      "size": 55007
+      "sha256": "635317b1605cea2628b1c7d8a8a78f2e6c3a6808890673a11be82c8b4e8c75dd",
+      "size": 53667
     },
     {
       "name": "galactic-survey-standalone-edition-0.1.1.zip",
       "role": "pack-artifact",
-      "sha256": "008cc9a77e696f166bb50db19af2a1047bdd06bb1453632f392e5d8f097f0e93",
-      "size": 145244636
+      "sha256": "5ac5bc019344c7471594d9d5e920d6a130fbd19825f8f4d9cca284253b9fc3ff",
+      "size": 145241857
     },
     {
       "name": "echoadaptercore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoadaptercore-1.0.0-standalone.jar",
-      "sha256": "2ab933ec40e024f336a90886cacf90e3693f9d30300c82e7f017c7ff5e9e84e3",
+      "sha256": "851fcebce74d964c3502f65d42518f60b162c9985ecaaa9ee4c6560fe5765563",
       "size": 970544
     },
     {
       "name": "echoassetcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoassetcore-1.0.0-standalone.jar",
-      "sha256": "2f8968009cf23378807d5acb5789ea250ff2ae366155d4e652c776c7e8cffe2b",
-      "size": 50837
+      "sha256": "cb0584c979821cdb015014c458eab5196e7d71c670f8d8cdbc3ae5626bdcd718",
+      "size": 50870
     },
     {
       "name": "echoatmospherecore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoatmospherecore-1.0.0-standalone.jar",
-      "sha256": "9a6d59d21857a26fc1ef915efcf5503bc27980a2f4254a75756f604145340b44",
-      "size": 34272
+      "sha256": "1938a4a19f2091bfc9f0079fd98e9c32c00dcb9327de291e24dd6f503bb371a2",
+      "size": 34294
     },
     {
       "name": "echoblockworks-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoblockworks-1.0.0-standalone.jar",
-      "sha256": "79d0d4cf8c49795d39bacc9c78f74cb5ce0d4f681226b74519889b461b8c64eb",
-      "size": 1344870
+      "sha256": "7f795c16a89ba601d6b107146ce8d83ca7514fe0cf3fb0e0f677909179b8d3ce",
+      "size": 1337789
     },
     {
       "name": "echocameracore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echocameracore-1.0.0-standalone.jar",
-      "sha256": "64c29c5a3c9a643a193a6bdce69aa9bb893f49a158f200ce0543666f9dc28181",
-      "size": 23437
+      "sha256": "5216c835282b6bde1e9f3262b531aaed440db10ea67a22e2e417767e048824bd",
+      "size": 23458
     },
     {
       "name": "echocommonloot-0.1.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echocommonloot-0.1.0-standalone.jar",
-      "sha256": "c3daab2e1ef93f7a6648cc61a3d9719bb84838c743ef4f48597d2d7d4bee98cf",
-      "size": 13446
+      "sha256": "a96675f1d333addcd72cb89f717c8a85739e6dda6963f149e0990cd2c5420d29",
+      "size": 13452
     },
     {
       "name": "echocontentcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echocontentcore-1.0.0-standalone.jar",
-      "sha256": "12f717cc97502edfeee2e6f6fc50fc7d9d824840271f89d6316b66b56e10159d",
+      "sha256": "055cb369e05fc759c90a08017426d233d6264d861eac04f5fafc249b3ed6019a",
       "size": 38592
     },
     {
       "name": "echocore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echocore-1.0.0-standalone.jar",
-      "sha256": "21c8008e6ba1c48e11eccebc82950059f42ee1ee32a60742c4da69d3788b2ac9",
-      "size": 377911
+      "sha256": "5a9e7f7d47972384f2b1db9cdef0f6afe85c46ec3946cc8364d4f8a375d1d6c9",
+      "size": 377929
     },
     {
       "name": "echocreatureroles-0.1.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echocreatureroles-0.1.0-standalone.jar",
-      "sha256": "c585363a30336cdbf628b09f618183d6c9bf75cb1506ae96015796e24489b958",
-      "size": 13205
+      "sha256": "8c98437801647b574fddbd470693220eb030008cb82a5d855b4f5025abde8f29",
+      "size": 13216
     },
     {
       "name": "echofoundationcore-0.1.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echofoundationcore-0.1.0-standalone.jar",
-      "sha256": "7504f954a927763336d70a7684b9422d9b40c913c20078d6f4b8c3b205c5f5b6",
-      "size": 16691
+      "sha256": "87c918dcdfeda78125212a5bd88295442dc89a711af27fa568f30bc1a450297e",
+      "size": 16701
     },
     {
       "name": "echogalacticcore-0.1.0-native-alpha-standalone.jar",
       "role": "pack-file",
       "path": "mods/echogalacticcore-0.1.0-native-alpha-standalone.jar",
-      "sha256": "950a9810aa3d7a9200894b50cf6a588b2da4731d847b1d0d7c83f91bd205122c",
-      "size": 12073325
+      "sha256": "4419ef6135c878f89286ad896078d300c72a7110a3be3f299b0f665e49c27668",
+      "size": 12073433
     },
     {
       "name": "echogalacticsurveyprotocol-0.1.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echogalacticsurveyprotocol-0.1.0-standalone.jar",
-      "sha256": "b0601def815bfcf97a06c8f0abe5859f15dc670d556a3458fa5f5153bfadc0b4",
-      "size": 135320
+      "sha256": "1780471d7d0af1a66ab31c10d6e9f24009b1f9fdbac899f6ebc3a927918e7943",
+      "size": 135465
     },
     {
       "name": "echoholomap-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoholomap-1.0.0-standalone.jar",
-      "sha256": "f8571632e9e74ea00a0eb5fd39bf7090fc0e6ffac7fef4247a22e096f0f17d43",
-      "size": 1502508
+      "sha256": "f7bffc43e897e4a0882ffa406fc5e1e4412f695648d12c9bf404a9939f00712c",
+      "size": 1502498
     },
     {
       "name": "echohudcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echohudcore-1.0.0-standalone.jar",
-      "sha256": "de4a6c03bdbe20b498d9e7a369bb6a7fc01b1de4d2cdb7f7c439f48760a5e6df",
-      "size": 52013
+      "sha256": "4721370a32aeefc7e45a64b019b19de63c1dd3c327173d503d63d2d21b2c4593",
+      "size": 52012
     },
     {
       "name": "echoindex-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoindex-1.0.0-standalone.jar",
-      "sha256": "00c9c10c90b5cde01d9ba78a58b53dc7fa56dae4bb538d7e9dfd1f46d1855cf7",
-      "size": 595052
+      "sha256": "f205dd6a30d6b88ef39f030822375f31554b65ee118715930414f60f2114f623",
+      "size": 594856
     },
     {
       "name": "echoinputcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoinputcore-1.0.0-standalone.jar",
-      "sha256": "a40194ae6f7fafab9a904ecea3d5d5ea4a86e03f35f6dd6b0a715bdce8fa2095",
-      "size": 26651
+      "sha256": "4f5fc3c89405890d6b27e2dfa044a834f18ee4c02bd860ff379171470c2a9e2a",
+      "size": 26676
     },
     {
       "name": "echolens-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echolens-1.0.0-standalone.jar",
-      "sha256": "0684a714da90ec209e76f4b24a10f3b4d5528136014107c1fce7cde8ddc39cb8",
-      "size": 221134
+      "sha256": "febbcc0ca00645302a6c70438900b31a090ebaf3b79e79b348a30448873beeec",
+      "size": 221137
     },
     {
       "name": "echologisticsnetwork-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echologisticsnetwork-1.0.0-standalone.jar",
-      "sha256": "9a0ea9b9d0b0a079cd727cff8055ac0d9c9cc8acd8110a8c50ef505ab430d34a",
-      "size": 3684736
+      "sha256": "474b6784fa868d3a3d43a5ac3350e33390735eda092012dec1c9be42a45cbba8",
+      "size": 3684530
     },
     {
       "name": "echomachinecore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echomachinecore-1.0.0-standalone.jar",
-      "sha256": "b6910f4e6a3f0deb9e87ffb257affa0fec5e6cb813d0c3f0d6f58de57d0bbcc4",
-      "size": 73835
+      "sha256": "3a5ea0b66e195f54427fa76f1d07be8e64959e72a436e423b58ad1b4cfb3b470",
+      "size": 73857
     },
     {
       "name": "echomaterialcore-0.1.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echomaterialcore-0.1.0-standalone.jar",
-      "sha256": "85fefff1e351a4470a19eb1a54cad031d6669dc6c95dbe527fd50f441fd52820",
-      "size": 27845
+      "sha256": "c78c4a55d79cf18d25af4f3a74144a53fd3df0ec429989fe863af807c40e57bd",
+      "size": 27885
     },
     {
       "name": "echomissioncore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echomissioncore-1.0.0-standalone.jar",
-      "sha256": "b7b7ef521f0bdcdf558537d901b90f669aadd18a8b7c4c734286fd62b44ced2a",
-      "size": 109703
+      "sha256": "fa6d7ce199fab0ad8f9c1c70c4315d77d72318c22c6b86c7b93a3e68740f8366",
+      "size": 109724
     },
     {
       "name": "echonetcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echonetcore-1.0.0-standalone.jar",
-      "sha256": "8c085960510c6e85c0f9d564f9c555b068ddc705bd749063a5752ae5eabdca0f",
-      "size": 73883
+      "sha256": "8a6f02a1f709efa7524beebb719ca2cd549c2227f490de376d7881026f155d3f",
+      "size": 73893
     },
     {
       "name": "echoorbitalremnants-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoorbitalremnants-1.0.0-standalone.jar",
-      "sha256": "78b8cfdeb86afda0c588da51bdc5f4e15682fb8e8313d5f24bad8b1a9e907faa",
-      "size": 14508043
+      "sha256": "6faf80a28656b24f63ded11fbf6618a6cda9f5f763f57a123e827316aeba21bb",
+      "size": 14506140
     },
     {
       "name": "echoplatformcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoplatformcore-1.0.0-standalone.jar",
-      "sha256": "18be9641f0ed5c0adbd7c9637234aa7d227223e64db1a966383589f4140165fd",
-      "size": 51606
+      "sha256": "2ba10828d340d5c2284a193fc62d87d4ad8dc8bf57e98cc1ce5f1b8fa29b4747",
+      "size": 51618
     },
     {
       "name": "echopowercore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echopowercore-1.0.0-standalone.jar",
-      "sha256": "f78a8613ab808a672625607cbcf9364bfd1f2cc16106323b852289256da96dcb",
-      "size": 28258
+      "sha256": "d50a240325996cd932c79f246d46d10e0d8ce80f2b161f37a391b1abcc330937",
+      "size": 28281
     },
     {
       "name": "echopowergrid-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echopowergrid-1.0.0-standalone.jar",
-      "sha256": "f62f17d9f85694eabb899766b3c0af041b7c280c5c8dbd62993a376272c34114",
-      "size": 7202699
+      "sha256": "462e96fce456a625fb46d7cf5d39e2a7cb2e069140b7a143e8cd56e89f0d8236",
+      "size": 7202306
     },
     {
       "name": "echoprogressioncore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoprogressioncore-1.0.0-standalone.jar",
-      "sha256": "65baf597026244ca803fd19553f0695cc4514f039849fb7880708e00e3b26fc9",
-      "size": 52014
+      "sha256": "5a25bf810b13fe5776cc98448e798c3634032977645ce8f9c7d01a444c096f10",
+      "size": 52047
     },
     {
       "name": "echorecipecore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echorecipecore-1.0.0-standalone.jar",
-      "sha256": "72d5223f30b5303b609c23d044e7ce3048cdc1f61274bdb09ba79d03fef78083",
-      "size": 43159
+      "sha256": "a14373389fcf39206095ea71c216d4234bbacc9ea8008396ddf955227c6003ee",
+      "size": 43188
     },
     {
       "name": "echoruntimeguard-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoruntimeguard-1.0.0-standalone.jar",
-      "sha256": "dee3294878ae3aa5e58d25733677dd075cff085d24abb860e668330c67784817",
-      "size": 133537
+      "sha256": "cecc606f74708b9d0cdc3c4501d428c4ae19e28a940bd7c40a84ca05a7312bbd",
+      "size": 133545
     },
     {
       "name": "echoschemacore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoschemacore-1.0.0-standalone.jar",
-      "sha256": "e1c6f3ea867f3da94d6c7154c058ac2407498c05a5bf9c39512ad4a339cc7d49",
-      "size": 35671
+      "sha256": "81866c0acd1084f4f5ec7e8ba0c65f3fadee280e012ab695d4c9159d1307ecd4",
+      "size": 35682
     },
     {
       "name": "echoscreencore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoscreencore-1.0.0-standalone.jar",
-      "sha256": "447c2c090181f07f6c557159fa811dfe0763ef4c44101c3debf53c63491d3c41",
-      "size": 398388
+      "sha256": "4adda38c5bdbc063e330bb7c6c7e9161c0d6a806d387fb13d8e837a89ebc6490",
+      "size": 398008
     },
     {
       "name": "echosoundcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echosoundcore-1.0.0-standalone.jar",
-      "sha256": "34b12ceeae52c9d35348b1fd3af9e91a54055e5a26cc318a4a01db8237a37c44",
-      "size": 11085994
+      "sha256": "257a16d4263f2b2e1c9b0610b4d89aec96d269cdc4581b2339d317904f6b98f8",
+      "size": 11085947
     },
     {
       "name": "echostationcore-0.1.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echostationcore-0.1.0-standalone.jar",
-      "sha256": "1bac6cc2214ced87f24e60e3f44b8ee69ff2d0d493b36f957f27b44e6e74d37f",
-      "size": 17213
+      "sha256": "4e81ba0939e3b7c4d2e0b7a0685b465ba7f0867bebbb76c9a1e1084dccf4de04",
+      "size": 17284
     },
     {
       "name": "echoterminal-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoterminal-1.0.0-standalone.jar",
-      "sha256": "3fc2d07f850ff11f23138f76855c96c2fb4307831e21d3efbf950faaaf898681",
-      "size": 22996381
+      "sha256": "fc6dc69406720eb7c1e97aeaee76282f39375eb2ebc835f24015336fd906022e",
+      "size": 22996137
     },
     {
       "name": "echothemecore-1.3.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echothemecore-1.3.0-standalone.jar",
-      "sha256": "2a556ea991c74cd876dd960a0c8cbfd6b31a195720de4baac8ce3d4dd1971697",
-      "size": 69627514
+      "sha256": "89549be76053a2d1a108cb9ce7567d0aa5040e52e9e90bb77e7b755b79b001d6",
+      "size": 69627398
     },
     {
       "name": "echotoolcore-0.1.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echotoolcore-0.1.0-standalone.jar",
-      "sha256": "a65bf859b508e6298d5bdd9f06571dee6fae96fdef541a91469c0742b8a2685c",
-      "size": 16688
+      "sha256": "600680bd03d299a90adef324f59c15056d2d0d771d66b82dff321ee6a96221c6",
+      "size": 16728
     },
     {
       "name": "echotutorialcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echotutorialcore-1.0.0-standalone.jar",
-      "sha256": "b6254a365e2a8f0860a0ca30e0d5535543da6bdcb161796751c695a22fe8ded7",
-      "size": 220747
+      "sha256": "2422c859d2aac62b5ff403a3c83616f33b9dceac7b0121218976e0c8bf3cf235",
+      "size": 220461
     },
     {
       "name": "echovalidationcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echovalidationcore-1.0.0-standalone.jar",
-      "sha256": "effcbd3892dbf9ada68812996a4ce9e6141233decf9e39645b78fbb38c4076cb",
-      "size": 47127
+      "sha256": "b309562438798d3fc95f3288fa283b969d9120f08c622bc278c2acc71a3b290c",
+      "size": 47141
     },
     {
       "name": "echovehiclecore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echovehiclecore-1.0.0-standalone.jar",
-      "sha256": "b8512250e6bbe34140109c59817bfe37e5c5d9a29d04efa3ed0ee4079bf326b6",
-      "size": 27129
+      "sha256": "abbfbeb0ec4531d8ca18a4d6797114fabc49c8ef038bfce2a0c3859e4d12f61b",
+      "size": 27154
     },
     {
       "name": "echoworldcore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoworldcore-1.0.0-standalone.jar",
-      "sha256": "5da57e0c99c826d8d2fa43c0e7760b4effb827d814ba46412f46fa0657755fa9",
-      "size": 183156
+      "sha256": "359b1011e45867bf0b57fe4c77b30a3d6dcac633c0e377b0ba7ff3dc6dc5725f",
+      "size": 182926
     },
     {
       "name": "echoworldstarter-0.1.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoworldstarter-0.1.0-standalone.jar",
-      "sha256": "7d71cb83004e13b8d44520fb3895e73f7a9af7731848ff104f455906a75a5b4e",
-      "size": 17970
+      "sha256": "85d809928393d0e21009e4c2bf1aa6fabcb7717e71662b352316a8ebc49ff519",
+      "size": 18045
     }
   ],
   "notes": [
     "Galactic Survey Standalone Edition refreshed against the current Release Index module catalog.",
     "Pack module files, sidecar metadata, and archive checksums are pinned to current GitHub module artifacts."
   ],
-  "moduleSourceRevision": "ECHO-Release-Index modules/*.json current artifacts, 2026-06-16"
+  "moduleSourceRevision": "ECHO-Modules modules-canonical-full-20260616 (9f25b667), 2026-06-16"
 }
