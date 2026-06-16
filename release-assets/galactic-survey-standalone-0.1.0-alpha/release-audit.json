@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "echo.official_modpack.release_audit.v1",
+  "status": "rebuilt-from-current-module-catalog",
+  "pack": "galactic-survey-standalone-edition",
+  "name": "Galactic Survey Standalone Edition",
+  "version": "0.1.0",
+  "channel": "alpha",
+  "moduleRelease": "release-index-current-module-artifacts-20260616",
+  "moduleSourceRevision": "ECHO-Release-Index modules/*.json current artifacts, 2026-06-16",
+  "releaseTag": "galactic-survey-standalone-0.1.0-alpha",
+  "sourceRepo": "knoxhack/ECHO-Galactic-Survey-Standalone-Edition",
+  "moduleCount": 41,
+  "artifact": {
+    "name": "galactic-survey-standalone-edition-0.1.0.zip",
+    "sha256": "be15ec7151bcba8e476e933276f57fac71dcc870a70070692aabd4bcaf971b12",
+    "size": 145240750
+  },
+  "manifest": {
+    "name": "galactic-survey-standalone-edition-alpha-0.1.0.pack.json",
+    "sha256": "f0e01a248e14dedb7ecdf2fe66df198d888b647adb19a40a0558410975f5bcd8",
+    "size": 54608
+  },
+  "generatedAt": "2026-06-16T01:22:46.394Z"
+}

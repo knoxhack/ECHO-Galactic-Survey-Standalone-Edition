@@ -4,14 +4,14 @@
   "name": "Galactic Survey Standalone Edition",
   "version": "0.1.0",
   "channel": "alpha",
-  "releasedAt": "2026-06-16T00:34:20.425Z",
+  "releasedAt": "2026-06-16T01:22:46.395Z",
   "manifestAsset": "galactic-survey-standalone-edition-alpha-0.1.0.pack.json",
-  "manifestSha256": "a90da0f03c851a77ee0a660b2c2dcc1d5ad17aa93b2fa3469acec5aaa9ffa449",
-  "manifestSize": 52957,
+  "manifestSha256": "f0e01a248e14dedb7ecdf2fe66df198d888b647adb19a40a0558410975f5bcd8",
+  "manifestSize": 54608,
   "artifactMode": "zip",
   "artifactAsset": "galactic-survey-standalone-edition-0.1.0.zip",
-  "artifactSha256": "f79dc76e7cc1f06e0e5445ccb6d6041e405dee13dbdfbc3f4f69cdd312db3b02",
-  "artifactSize": 148193935,
+  "artifactSha256": "be15ec7151bcba8e476e933276f57fac71dcc870a70070692aabd4bcaf971b12",
+  "artifactSize": 145240750,
   "moduleRelease": "release-index-current-module-artifacts-20260616",
   "packs": [
     {
@@ -27,21 +27,21 @@
     {
       "name": "galactic-survey-standalone-edition-alpha-0.1.0.pack.json",
       "role": "pack-manifest",
-      "sha256": "a90da0f03c851a77ee0a660b2c2dcc1d5ad17aa93b2fa3469acec5aaa9ffa449",
-      "size": 54630
+      "sha256": "f0e01a248e14dedb7ecdf2fe66df198d888b647adb19a40a0558410975f5bcd8",
+      "size": 54608
     },
     {
       "name": "galactic-survey-standalone-edition-0.1.0.zip",
       "role": "pack-artifact",
-      "sha256": "f79dc76e7cc1f06e0e5445ccb6d6041e405dee13dbdfbc3f4f69cdd312db3b02",
-      "size": 148193935
+      "sha256": "be15ec7151bcba8e476e933276f57fac71dcc870a70070692aabd4bcaf971b12",
+      "size": 145240750
     },
     {
       "name": "echoadaptercore-1.0.0-standalone.jar",
       "role": "pack-file",
       "path": "mods/echoadaptercore-1.0.0-standalone.jar",
-      "sha256": "58172c454a08644d794b0d4a29d1a7b5bab8651c6657006a8caa091fbf308188",
-      "size": 957538
+      "sha256": "06e762775bab4ae85178d8ce8af4ad0065fb95aa033841c8290d9b756b84fb21",
+      "size": 970532
     },
     {
       "name": "echoassetcore-1.0.0-standalone.jar",
