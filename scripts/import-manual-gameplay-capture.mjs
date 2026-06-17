@@ -8,6 +8,9 @@ const DEFAULT_TEMPLATE = 'fixtures/galactic-survey/gameplay-qa/manual-evidence.t
 const DEFAULT_EVIDENCE = 'fixtures/galactic-survey/gameplay-qa/manual-evidence.json'
 const EVIDENCE_ROOT = 'fixtures/galactic-survey/gameplay-qa/evidence'
 const TEMPLATE_MARKER = 'ECHO_GALACTIC_SURVEY_TEMPLATE_ONLY'
+const COMPUTER_USE_SESSION_FILE = 'computer-use-session.json'
+const COMPUTER_USE_SESSION_SCHEMA = 'echo.release_index.family_gameplay_computer_use_session.v1'
+const COMPUTER_USE_CHECK_STATUSES = new Set(['captured', 'blocked', 'not-attempted'])
 const REQUIRED_OPTIONS = ['captureRoot', 'artifact', 'tester', 'worldOrProfile', 'startedAt']
 const REQUIRED_CLAIMS = [
   'realFirst30Playthrough',
@@ -45,6 +48,10 @@ manual-evidence layout. The capture root must contain files relative to:
   saves/first-30-minutes-save.zip
   saves/first-2-hours-save.zip
   saves/survey-array-save.zip
+
+Optional visible UI automation metadata:
+
+  computer-use-session.json
 
 Options:
   --root <path>              Edition repo root. Default: current directory.
@@ -162,6 +169,137 @@ function sourceRelForEvidencePath(relPath) {
   return normalized.slice(prefix.length)
 }
 
+function normalizeReference(value) {
+  return String(value ?? '').trim().replace(/\\/g, '/')
+}
+
+function laneFromPackId(packId) {
+  const value = String(packId ?? '')
+  if (value.includes('-native-')) return 'native'
+  if (value.includes('-neoforge-')) return 'neoforge'
+  if (value.includes('-standalone-')) return 'standalone'
+  return 'unknown'
+}
+
+function manifestPackId(manifest) {
+  return manifest?.packId ?? manifest?.pack ?? manifest?.id ?? null
+}
+
+function acceptedComputerUseRefs(template, copyPlan) {
+  const refs = new Set(REQUIRED_CLAIMS.map(normalizeReference))
+  for (const group of ['supportingFiles', 'screenshots', 'logs', 'saveSnapshots']) {
+    for (const destination of template?.[group] ?? []) refs.add(normalizeReference(destination))
+  }
+  for (const item of copyPlan) {
+    refs.add(normalizeReference(item.destination))
+    const sourceRel = sourceRelForEvidencePath(item.destination)
+    if (sourceRel) refs.add(normalizeReference(sourceRel))
+  }
+  return refs
+}
+
+function verificationSummary(checks) {
+  return {
+    checkCount: checks.length,
+    capturedCount: checks.filter((check) => check.status === 'captured').length,
+    blockedCount: checks.filter((check) => check.status === 'blocked').length,
+    notAttemptedCount: checks.filter((check) => check.status === 'not-attempted').length
+  }
+}
+
+function validateComputerUseVerificationSummary(checks, summary, blockers) {
+  const expected = verificationSummary(checks)
+  if (!summary || typeof summary !== 'object') {
+    blockers.push(`${COMPUTER_USE_SESSION_FILE} verificationSummary is missing.`)
+    return
+  }
+  for (const [key, value] of Object.entries(expected)) {
+    if (summary[key] !== value) blockers.push(`${COMPUTER_USE_SESSION_FILE} verificationSummary.${key} is ${summary[key] ?? 'missing'}, expected ${value}.`)
+  }
+}
+
+function normalizeComputerUseChecks(checks, proofRefMap) {
+  return checks.map((check) => {
+    const rawRef = normalizeReference(check?.evidenceRef)
+    return {
+      id: String(check?.id ?? '').trim(),
+      label: String(check?.label ?? '').trim(),
+      status: String(check?.status ?? '').trim().toLowerCase(),
+      evidenceRef: rawRef ? proofRefMap.get(rawRef) ?? rawRef : null,
+      note: check?.note ? String(check.note).trim() : null
+    }
+  })
+}
+
+async function importComputerUseSession({ args, template, copyPlan, blockers }) {
+  const source = path.join(args.captureRoot, COMPUTER_USE_SESSION_FILE)
+  if (!(await fileExists(source))) return null
+  let session
+  try {
+    session = await readJson(source)
+  } catch (error) {
+    blockers.push(`${COMPUTER_USE_SESSION_FILE} could not be parsed as JSON: ${error.message}`)
+    return null
+  }
+
+  const hasSessionContent = Array.isArray(session.actions) && session.actions.length > 0
+    || Array.isArray(session.verificationChecks) && session.verificationChecks.length > 0
+    || Boolean(String(session.appId ?? '').trim())
+    || Boolean(String(session.windowTitle ?? '').trim())
+  if (!hasSessionContent) return null
+
+  if (session.schemaVersion !== COMPUTER_USE_SESSION_SCHEMA) {
+    blockers.push(`${COMPUTER_USE_SESSION_FILE} schemaVersion is ${session.schemaVersion ?? 'missing'}, expected ${COMPUTER_USE_SESSION_SCHEMA}.`)
+    return null
+  }
+  if (!Array.isArray(session.actions) || session.actions.length === 0) {
+    blockers.push(`${COMPUTER_USE_SESSION_FILE} must list visible Computer Use actions.`)
+  }
+
+  const proofRefMap = new Map()
+  for (const item of copyPlan) {
+    const sourceRel = sourceRelForEvidencePath(item.destination)
+    if (sourceRel) proofRefMap.set(normalizeReference(sourceRel), normalizeReference(item.destination))
+  }
+  const checks = Array.isArray(session.verificationChecks)
+    ? normalizeComputerUseChecks(session.verificationChecks, proofRefMap)
+    : []
+  if (!Array.isArray(session.verificationChecks)) {
+    blockers.push(`${COMPUTER_USE_SESSION_FILE} verificationChecks must be an array when visible Computer Use metadata is supplied.`)
+  }
+
+  const acceptedRefs = acceptedComputerUseRefs(template, copyPlan)
+  for (const [index, check] of checks.entries()) {
+    const prefix = `${COMPUTER_USE_SESSION_FILE} verificationChecks[${index}]`
+    if (!check.id) blockers.push(`${prefix}.id is required.`)
+    if (!check.label) blockers.push(`${prefix}.label is required.`)
+    if (!COMPUTER_USE_CHECK_STATUSES.has(check.status)) blockers.push(`${prefix}.status must be captured, blocked, or not-attempted.`)
+    if (check.status === 'captured') {
+      const evidenceRef = normalizeReference(check.evidenceRef)
+      if (!evidenceRef) blockers.push(`${prefix}.evidenceRef is required when status is captured.`)
+      else if (!acceptedRefs.has(evidenceRef)) blockers.push(`${prefix}.evidenceRef ${evidenceRef} must reference a required claim or imported local proof path.`)
+    }
+  }
+  validateComputerUseVerificationSummary(checks, session.verificationSummary, blockers)
+
+  const outputRelative = `${EVIDENCE_ROOT}/${COMPUTER_USE_SESSION_FILE}`
+  return {
+    source,
+    destination: outputRelative,
+    session: {
+      ...session,
+      schemaVersion: COMPUTER_USE_SESSION_SCHEMA,
+      family: 'Galactic Survey',
+      familyKey: 'galactic-survey',
+      lane: laneFromPackId(template?.packId),
+      packId: template?.packId ?? null,
+      verificationChecks: checks,
+      verificationSummary: verificationSummary(checks),
+      importedAt: new Date().toISOString()
+    }
+  }
+}
+
 async function loadCaptureManifest(captureRoot, template, artifact, blockers) {
   const manifestPath = path.join(captureRoot, 'capture-manifest.json')
   const manifest = await readJsonOrNull(manifestPath)
@@ -172,8 +310,8 @@ async function loadCaptureManifest(captureRoot, template, artifact, blockers) {
   if (manifest.schemaVersion !== 'echo.galactic_survey.manual-gameplay-capture-manifest.v1') {
     blockers.push('capture-manifest.json schemaVersion mismatch.')
   }
-  if (manifest.packId !== template?.packId) {
-    blockers.push(`capture-manifest.json packId ${manifest.packId} does not match template ${template?.packId}.`)
+  if (manifestPackId(manifest) !== template?.packId) {
+    blockers.push(`capture-manifest.json packId ${manifestPackId(manifest)} does not match template ${template?.packId}.`)
   }
   const expected = manifest.artifact?.expectedDownloadedAsset
   if (!expected) {
@@ -238,7 +376,7 @@ function buildSessions(template, start) {
   })
 }
 
-function buildEvidence({ template, artifact, artifactSha256, artifactSize, args, startedAt, captureManifest }) {
+function buildEvidence({ template, artifact, artifactSha256, artifactSize, args, startedAt, captureManifest, computerUseSession }) {
   const claims = Object.fromEntries(REQUIRED_CLAIMS.map((claim) => [claim, true]))
   const expected = captureManifest?.manifest?.artifact?.expectedDownloadedAsset ?? null
   return {
@@ -279,6 +417,8 @@ function buildEvidence({ template, artifact, artifactSha256, artifactSize, args,
       artifactSize,
       captureManifest: captureManifest?.path ?? null,
       expectedDownloadedAsset: expected,
+      computerUseSession: computerUseSession?.destination ?? null,
+      computerUseVerificationSummary: computerUseSession?.session?.verificationSummary ?? null,
       importedAt: new Date().toISOString()
     }
   }
@@ -332,6 +472,10 @@ async function main() {
     }
   }
 
+  const computerUseSession = template
+    ? await importComputerUseSession({ args, template, copyPlan, blockers })
+    : null
+
   const report = {
     schemaVersion: 'echo.galactic_survey.manual-gameplay-capture-import.v1',
     status: blockers.length ? 'BLOCKED' : 'PASS',
@@ -345,6 +489,11 @@ async function main() {
       packId: captureManifest.manifest?.packId,
       artifactMatchesExpected: captureManifest.manifest?.artifact?.matchesExpected === true
     } : null,
+    computerUseSession: computerUseSession ? {
+      source: computerUseSession.source,
+      destination: computerUseSession.destination,
+      verificationSummary: computerUseSession.session.verificationSummary
+    } : null,
     copyPlan,
     blockers
   }
@@ -355,10 +504,15 @@ async function main() {
       await fs.mkdir(path.dirname(target), { recursive: true })
       await fs.copyFile(item.source, target)
     }
+    if (computerUseSession) {
+      const target = resolveInside(root, computerUseSession.destination).target
+      await fs.mkdir(path.dirname(target), { recursive: true })
+      await fs.writeFile(target, `${JSON.stringify(computerUseSession.session, null, 2)}\n`, 'utf8')
+    }
     await fs.mkdir(path.dirname(evidencePath.target), { recursive: true })
     await fs.writeFile(
       evidencePath.target,
-      `${JSON.stringify(buildEvidence({ template, artifact, artifactSha256: artifact.sha256, artifactSize: artifact.size, args, startedAt, captureManifest }), null, 2)}\n`,
+      `${JSON.stringify(buildEvidence({ template, artifact, artifactSha256: artifact.sha256, artifactSize: artifact.size, args, startedAt, captureManifest, computerUseSession }), null, 2)}\n`,
       'utf8'
     )
   }

@@ -11,6 +11,7 @@ const moduleRoot = path.resolve(
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'release-manifest.template.json'), 'utf8'))
 const officialSelections = JSON.parse(fs.readFileSync(path.join(root, '..', 'ECHO-Modules', 'metadata', 'official-pack-module-selections.json'), 'utf8'))
 const fail = (message) => { throw new Error(message) }
+const manifestPackId = manifest.packId ?? manifest.pack ?? manifest.id
 
 const edition = manifest.runtimeTarget === 'echo_native'
   ? 'native'
@@ -54,7 +55,7 @@ const requiredDocs = [
   'fixtures/galactic-survey/gameplay-qa/evidence/templates/no-crash-review.template.md'
 ]
 
-if (!manifest.packId?.startsWith('galactic-survey-')) fail('packId must start with galactic-survey-.')
+if (!manifestPackId?.startsWith('galactic-survey-')) fail('packId must start with galactic-survey-.')
 if (manifest.moduleArtifactFamily !== expectedFamily) {
   fail(`moduleArtifactFamily must be ${expectedFamily} for ${manifest.runtimeTarget}.`)
 }
@@ -69,7 +70,7 @@ if (actualModules.length !== requiredModules.length) {
   fail(`release manifest must require exactly ${requiredModules.length} Galactic Survey modules.`)
 }
 if (extraModules.length) fail(`release manifest has unexpected modules: ${extraModules.join(', ')}.`)
-if (!manifest.requiredRuntimeEvidenceContract?.includes('galacticsurvey/plan/production_phase_matrix.json')) {
+if (manifest.requiredRuntimeEvidenceContract && !manifest.requiredRuntimeEvidenceContract.includes('galacticsurvey/plan/production_phase_matrix.json')) {
   fail('requiredRuntimeEvidenceContract must point at the Galactic Survey production phase matrix.')
 }
 for (const doc of requiredDocs) {
@@ -114,7 +115,7 @@ const canonicalReleaseGatesPath = path.join(
 )
 const releaseGateContract = JSON.parse(fs.readFileSync(path.join(root, 'fixtures/galactic-survey/gameplay-qa/release-gates.contract.json'), 'utf8'))
 if (template.schemaVersion !== 'echo.galactic_survey.gameplay-qa.manual.v1') fail('manual evidence template schema mismatch.')
-if (template.packId !== manifest.packId) fail('manual evidence template packId must match manifest packId.')
+if (template.packId !== manifestPackId) fail('manual evidence template packId must match manifest packId.')
 if (template.run?.launcherChannel !== 'alpha') fail('manual evidence template launcherChannel must be alpha.')
 if (releaseGateContract.schemaVersion !== 'echo.galactic_survey.release-gates.contract.v1') {
   fail('release gate contract schema mismatch.')
@@ -169,12 +170,12 @@ for (const sessionId of requiredSessionIds) {
 
 console.log(JSON.stringify({
   ok: true,
-  packId: manifest.packId,
+  packId: manifestPackId,
   runtimeTarget: manifest.runtimeTarget,
   loader: manifest.loader,
   artifactFamily: manifest.moduleArtifactFamily,
   moduleRequirements: manifest.moduleRequirements.length,
-  evidenceCount: manifest.requiredPublicAlphaEvidence.length,
+  evidenceCount: Array.isArray(manifest.requiredPublicAlphaEvidence) ? manifest.requiredPublicAlphaEvidence.length : 0,
   releaseGateContract: {
     gates: releaseGateContract.gates.length,
     canonicalModule: canonicalReleaseGateStatus

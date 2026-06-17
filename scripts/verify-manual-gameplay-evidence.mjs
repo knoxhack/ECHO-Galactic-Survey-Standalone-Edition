@@ -7,6 +7,8 @@ const DEFAULT_EVIDENCE = 'fixtures/galactic-survey/gameplay-qa/manual-evidence.j
 const DEFAULT_TEMPLATE = 'fixtures/galactic-survey/gameplay-qa/manual-evidence.template.json'
 const DEFAULT_RELEASE_GATES = 'fixtures/galactic-survey/gameplay-qa/release-gates.contract.json'
 const TEMPLATE_MARKER = 'ECHO_GALACTIC_SURVEY_TEMPLATE_ONLY'
+const COMPUTER_USE_SESSION_SCHEMA = 'echo.release_index.family_gameplay_computer_use_session.v1'
+const COMPUTER_USE_CHECK_STATUSES = new Set(['captured', 'blocked', 'not-attempted'])
 const REQUIRED_CLAIMS = [
   'realFirst30Playthrough',
   'realFirst2HourPlaythrough',
@@ -81,6 +83,93 @@ async function fileExists(filePath) {
   }
 }
 
+function normalizeReference(value) {
+  return String(value ?? '').trim().replace(/\\/g, '/')
+}
+
+function laneFromPackId(packId) {
+  const value = String(packId ?? '')
+  if (value.includes('-native-')) return 'native'
+  if (value.includes('-neoforge-')) return 'neoforge'
+  if (value.includes('-standalone-')) return 'standalone'
+  return 'unknown'
+}
+
+function manifestPackId(manifest) {
+  return manifest?.packId ?? manifest?.pack ?? manifest?.id ?? null
+}
+
+function acceptedComputerUseRefs(evidence) {
+  const refs = new Set(REQUIRED_CLAIMS.map(normalizeReference))
+  for (const group of ['supportingFiles', 'screenshots', 'logs', 'saveSnapshots']) {
+    for (const relativePath of Array.isArray(evidence?.[group]) ? evidence[group] : []) {
+      refs.add(normalizeReference(relativePath))
+    }
+  }
+  for (const gate of Array.isArray(evidence?.releaseGates) ? evidence.releaseGates : []) {
+    if (gate?.requiredClaim) refs.add(normalizeReference(gate.requiredClaim))
+    if (gate?.evidenceSource) refs.add(normalizeReference(gate.evidenceSource))
+  }
+  return refs
+}
+
+function validateComputerUseVerificationSummary(checks, summary, blockers) {
+  if (!summary || typeof summary !== 'object') {
+    blockers.push('manualEvidence.importedCapture.computerUseSession verificationSummary is missing.')
+    return
+  }
+  const statuses = checks.map((check) => String(check?.status ?? '').trim().toLowerCase())
+  const expected = {
+    checkCount: checks.length,
+    capturedCount: statuses.filter((status) => status === 'captured').length,
+    blockedCount: statuses.filter((status) => status === 'blocked').length,
+    notAttemptedCount: statuses.filter((status) => status === 'not-attempted').length
+  }
+  for (const [key, value] of Object.entries(expected)) {
+    if (summary[key] !== value) blockers.push(`manualEvidence.importedCapture.computerUseSession verificationSummary.${key} is ${summary[key] ?? 'missing'}, expected ${value}.`)
+  }
+}
+
+async function validateComputerUseSession({ root, manifest, evidence, blockers }) {
+  const reference = evidence.importedCapture?.computerUseSession
+  if (!reference) return null
+  const resolved = resolveInside(root, reference)
+  if (resolved.error || !(await fileExists(resolved.target))) {
+    blockers.push(`manualEvidence.importedCapture.computerUseSession missing file ${reference}.`)
+    return null
+  }
+  const session = await readJson(resolved.target)
+  if (session.schemaVersion !== COMPUTER_USE_SESSION_SCHEMA) {
+    blockers.push(`manualEvidence.importedCapture.computerUseSession schemaVersion is ${session.schemaVersion ?? 'missing'}, expected ${COMPUTER_USE_SESSION_SCHEMA}.`)
+  }
+  if (session.familyKey !== 'galactic-survey') blockers.push(`manualEvidence.importedCapture.computerUseSession familyKey is ${session.familyKey ?? 'missing'}, expected galactic-survey.`)
+  const packId = manifestPackId(manifest)
+  if (session.lane !== laneFromPackId(packId)) blockers.push(`manualEvidence.importedCapture.computerUseSession lane is ${session.lane ?? 'missing'}, expected ${laneFromPackId(packId)}.`)
+  if (session.packId !== packId) blockers.push(`manualEvidence.importedCapture.computerUseSession packId is ${session.packId ?? 'missing'}, expected ${packId}.`)
+  if (!Array.isArray(session.actions) || session.actions.length === 0) {
+    blockers.push('manualEvidence.importedCapture.computerUseSession must list visible Computer Use actions.')
+  }
+  if (!Array.isArray(session.verificationChecks)) {
+    blockers.push('manualEvidence.importedCapture.computerUseSession verificationChecks must be an array.')
+  }
+  const checks = Array.isArray(session.verificationChecks) ? session.verificationChecks : []
+  const acceptedRefs = acceptedComputerUseRefs(evidence)
+  for (const [index, check] of checks.entries()) {
+    const prefix = `manualEvidence.importedCapture.computerUseSession verificationChecks[${index}]`
+    if (!String(check?.id ?? '').trim()) blockers.push(`${prefix}.id is required.`)
+    if (!String(check?.label ?? '').trim()) blockers.push(`${prefix}.label is required.`)
+    const status = String(check?.status ?? '').trim().toLowerCase()
+    if (!COMPUTER_USE_CHECK_STATUSES.has(status)) blockers.push(`${prefix}.status must be captured, blocked, or not-attempted.`)
+    if (status === 'captured') {
+      const evidenceRef = normalizeReference(check.evidenceRef)
+      if (!evidenceRef) blockers.push(`${prefix}.evidenceRef is required when status is captured.`)
+      else if (!acceptedRefs.has(evidenceRef)) blockers.push(`${prefix}.evidenceRef ${evidenceRef} must reference a required claim or imported local proof path.`)
+    }
+  }
+  validateComputerUseVerificationSummary(checks, session.verificationSummary, blockers)
+  return session
+}
+
 function validateReleaseGateContract({ contract, blockers }) {
   if (contract.schemaVersion !== 'echo.galactic_survey.release-gates.contract.v1') {
     blockers.push('release gate contract schemaVersion mismatch.')
@@ -105,7 +194,7 @@ function validateReleaseGateContract({ contract, blockers }) {
 
 function validateShape({ manifest, evidence, label, blockers, requiredReleaseGates }) {
   if (evidence.schemaVersion !== 'echo.galactic_survey.gameplay-qa.manual.v1') blockers.push(`${label}.schemaVersion mismatch.`)
-  if (evidence.packId !== manifest.packId) blockers.push(`${label}.packId must match manifest ${manifest.packId}.`)
+  if (evidence.packId !== manifestPackId(manifest)) blockers.push(`${label}.packId must match manifest ${manifestPackId(manifest)}.`)
   for (const claim of REQUIRED_CLAIMS) {
     if (!(claim in (evidence.claims ?? {}))) blockers.push(`${label}.claims missing ${claim}.`)
   }
@@ -161,6 +250,7 @@ async function validateRealEvidence({ root, manifest, evidencePath, blockers, re
   }
   if (!evidence.importedCapture?.captureManifest) blockers.push('manualEvidence.importedCapture.captureManifest is required.')
   if (!evidence.importedCapture?.expectedDownloadedAsset) blockers.push('manualEvidence.importedCapture.expectedDownloadedAsset is required.')
+  const computerUseSession = await validateComputerUseSession({ root, manifest, evidence, blockers })
   for (const listName of ['supportingFiles', 'screenshots', 'logs', 'saveSnapshots']) {
     for (const relPath of evidence[listName] ?? []) {
       const file = resolveInside(root, relPath)
@@ -176,7 +266,10 @@ async function validateRealEvidence({ root, manifest, evidencePath, blockers, re
       }
     }
   }
-  return evidence
+  return {
+    ...evidence,
+    computerUseSession
+  }
 }
 
 const args = parseArgs(process.argv.slice(2))
@@ -208,7 +301,7 @@ const report = {
   status: blockers.length ? 'BLOCKED' : 'PASS',
   mode: args.templateOnly ? 'template-only' : 'manual-evidence',
   generatedAt: new Date().toISOString(),
-  packId: manifest.packId,
+  packId: manifestPackId(manifest),
   runtimeTarget: manifest.runtimeTarget,
   evidencePath: args.evidence,
   releaseGateContractPath: args.releaseGates,
@@ -219,7 +312,11 @@ const report = {
     claims: manualEvidence.claims,
     artifactMatchesExpected: manualEvidence.run?.artifactMatchesExpected === true,
     releaseGates: manualEvidence.releaseGates?.map((gate) => ({ id: gate.id, satisfied: gate.satisfied, evidenceSource: gate.evidenceSource })),
-    sessions: manualEvidence.sessions?.map((session) => session.id)
+    sessions: manualEvidence.sessions?.map((session) => session.id),
+    computerUseSession: manualEvidence.computerUseSession ? {
+      path: manualEvidence.importedCapture?.computerUseSession ?? null,
+      verificationSummary: manualEvidence.computerUseSession.verificationSummary ?? null
+    } : null
   } : null,
   blockers
 }

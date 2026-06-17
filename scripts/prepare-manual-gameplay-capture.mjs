@@ -8,6 +8,7 @@ const DEFAULT_TEMPLATE = 'fixtures/galactic-survey/gameplay-qa/manual-evidence.t
 const DEFAULT_DOWNLOAD_EVIDENCE = 'release-readiness/galactic-survey-draft-download.json'
 const EVIDENCE_ROOT = 'fixtures/galactic-survey/gameplay-qa/evidence'
 const TEMPLATE_MARKER = 'ECHO_GALACTIC_SURVEY_TEMPLATE_ONLY'
+const COMPUTER_USE_SESSION_FILE = 'computer-use-session.json'
 const REQUIRED_OPTIONS = ['tester', 'worldOrProfile', 'startedAt']
 
 function usage() {
@@ -132,6 +133,10 @@ function sourceRelForEvidencePath(relPath) {
   return normalized.slice(prefix.length)
 }
 
+function manifestPackId(manifest) {
+  return manifest?.packId ?? manifest?.pack ?? manifest?.id ?? null
+}
+
 function requiredCaptureFiles(template) {
   const files = []
   for (const listName of ['supportingFiles', 'screenshots', 'logs', 'saveSnapshots']) {
@@ -171,7 +176,7 @@ Do not remove this marker until the note is based on captured play evidence.
 }
 
 function findEditionDownload(downloadEvidence, manifest, template) {
-  const packId = manifest.packId
+  const packId = manifestPackId(manifest)
   const artifactName = template.run?.artifactAsset
   const edition = downloadEvidence?.data?.editions?.find((item) => item?.packId === packId)
   const asset = edition?.downloadedAssets?.find((item) => item?.name === artifactName)
@@ -248,11 +253,12 @@ function verifyCommands() {
 
 function buildManifest({ args, manifest, template, downloadEvidencePath, downloadEdition, artifact, requiredFiles }) {
   const importCmd = importCommand(args, artifact?.path ?? args.artifact)
+  const packId = manifestPackId(manifest)
   return {
     schemaVersion: 'echo.galactic_survey.manual-gameplay-capture-manifest.v1',
     status: 'READY_FOR_CAPTURE',
     generatedAt: new Date().toISOString(),
-    packId: manifest.packId,
+    packId,
     displayName: manifest.displayName,
     runtimeTarget: manifest.runtimeTarget,
     loader: manifest.loader,
@@ -275,6 +281,9 @@ function buildManifest({ args, manifest, template, downloadEvidencePath, downloa
       ...file,
       capturePath: file.captureRelPath ? path.join(args.captureRoot, file.captureRelPath) : null
     })),
+    optionalFiles: {
+      computerUseSession: path.join(args.captureRoot, COMPUTER_USE_SESSION_FILE)
+    },
     commands: {
       import: importCmd,
       verify: verifyCommands()
@@ -282,6 +291,7 @@ function buildManifest({ args, manifest, template, downloadEvidencePath, downloa
     notes: [
       'This manifest prepares a manual capture. It is not proof that gameplay happened.',
       'The importer must still reject this folder until real notes, screenshots, logs, and save snapshots replace the templates.',
+      'computer-use-session.json is optional provenance for visible UI automation and cannot replace required gameplay proof files.',
       `Remove ${TEMPLATE_MARKER} from note files only after replacing them with real captured observations.`
     ]
   }
@@ -303,6 +313,14 @@ capture output and the import plus verifier commands pass.
 - Asset: \`${captureManifest.artifact?.name ?? 'unknown'}\`
 - SHA-256: \`${captureManifest.artifact?.sha256 ?? 'unknown'}\`
 - Release: ${captureManifest.releaseIndex.releaseUrl ?? 'unknown'}
+
+## Optional Computer Use Session
+
+- \`${COMPUTER_USE_SESSION_FILE}\`
+
+If used, fill this file with the visible app/window actions that produced the
+capture artifacts. Captured verification checks must reference a required claim
+id or one of the imported proof paths listed below.
 
 ## Required Files
 
@@ -336,6 +354,33 @@ async function writePreparedCapture({ args, captureManifest, template }) {
       await fs.writeFile(target, noteTemplate(file.captureRelPath, args, template, captureManifest.artifact?.expectedDownloadedAsset), 'utf8')
     }
   }
+  await fs.writeFile(path.join(args.captureRoot, COMPUTER_USE_SESSION_FILE), `${JSON.stringify({
+    schemaVersion: 'echo.release_index.family_gameplay_computer_use_session.v1',
+    family: 'Galactic Survey',
+    familyKey: 'galactic-survey',
+    lane: captureManifest.packId.includes('-native-')
+      ? 'native'
+      : captureManifest.packId.includes('-neoforge-')
+        ? 'neoforge'
+        : captureManifest.packId.includes('-standalone-')
+          ? 'standalone'
+          : 'unknown',
+    packId: captureManifest.packId,
+    appId: null,
+    windowTitle: null,
+    actions: [],
+    verificationChecks: [],
+    verificationSummary: {
+      checkCount: 0,
+      capturedCount: 0,
+      blockedCount: 0,
+      notAttemptedCount: 0
+    },
+    notes: [
+      'Optional. Replace this file with real Computer Use window/action metadata before import if visible UI automation is used.',
+      'Captured checks must reference a required claim id such as freshWorldCreated or an imported proof path such as screenshots/fresh-world-created.png.'
+    ]
+  }, null, 2)}\n`, 'utf8')
   await fs.writeFile(path.join(args.captureRoot, 'capture-manifest.json'), `${JSON.stringify(captureManifest, null, 2)}\n`, 'utf8')
   await fs.writeFile(path.join(args.captureRoot, 'README.md'), buildReadme({ captureManifest }), 'utf8')
 }
@@ -378,11 +423,11 @@ async function main() {
   const { edition: downloadEdition, asset: expectedAsset } = manifest && template && downloadEvidence
     ? findEditionDownload(downloadEvidence, manifest, template)
     : { edition: null, asset: null }
-  if (manifest && template && downloadEvidence && !downloadEdition) blockers.push(`Download evidence has no edition row for ${manifest.packId}.`)
-  if (manifest && template && downloadEdition && !expectedAsset) blockers.push(`Download evidence has no downloaded zip asset for ${manifest.packId}.`)
+  if (manifest && template && downloadEvidence && !downloadEdition) blockers.push(`Download evidence has no edition row for ${manifestPackId(manifest)}.`)
+  if (manifest && template && downloadEdition && !expectedAsset) blockers.push(`Download evidence has no downloaded zip asset for ${manifestPackId(manifest)}.`)
 
   if (startedAt && manifest && !args.captureRoot) {
-    args.captureRoot = path.resolve(root, 'tmp', 'galactic-survey-gameplay-capture', manifest.packId, timestampSlug(startedAt))
+    args.captureRoot = path.resolve(root, 'tmp', 'galactic-survey-gameplay-capture', manifestPackId(manifest), timestampSlug(startedAt))
   }
   if (!args.captureRoot) blockers.push('--capture-root is required when --started-at is invalid.')
   if (args.captureRoot && await dirExists(args.captureRoot) && !args.force) {

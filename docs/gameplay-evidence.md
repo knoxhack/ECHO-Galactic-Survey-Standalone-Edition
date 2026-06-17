@@ -99,13 +99,22 @@ The capture root must contain these real files, using the same relative paths:
 - `saves/first-2-hours-save.zip`
 - `saves/survey-array-save.zip`
 
+If visible UI automation is used, the capture root may also include
+`computer-use-session.json` with schema
+`echo.release_index.family_gameplay_computer_use_session.v1`. This file records
+the app/window target, visible actions, and verification checks, but it is only
+accepted as provenance. Captured checks must reference a required claim id or one
+of the imported local proof files above; the session cannot replace required
+notes, screenshots, logs, save snapshots, artifact identity, or no-crash review.
+
 The importer copies those files into this repo's evidence folder, computes the
 pack artifact SHA-256 and size, verifies it against the prepared Release Index
 download evidence, marks the release gates true, and still leaves
 `verify-manual-gameplay-evidence.mjs --require-release-ready` as the authority.
 It requires `capture-manifest.json` from the prepare step and rejects template
 markers, placeholder text, non-PNG screenshots, non-ZIP save snapshots, artifact
-mismatches, and accidental overwrites unless `--force` is supplied.
+mismatches, invalid Computer Use session references, and accidental overwrites
+unless `--force` is supplied.
 
 Template-mode CI check:
 

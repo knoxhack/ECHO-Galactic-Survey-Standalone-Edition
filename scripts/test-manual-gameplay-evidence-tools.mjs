@@ -44,6 +44,15 @@ async function copySeedFiles(root) {
   }
 }
 
+function manifestPackId(manifest) {
+  return manifest?.packId ?? manifest?.pack ?? manifest?.id ?? null
+}
+
+function manifestRepoName(manifest) {
+  const sourceRepo = manifest?.sourceRepo ?? `knoxhack/${path.basename(repoRoot)}`
+  return sourceRepo.split('/').pop()
+}
+
 async function writeCaptureFiles(captureRoot) {
   const png = Buffer.from('89504e470d0a1a0a0000000d49484452', 'hex')
   const zip = Buffer.from('504b03040a0000000000', 'hex')
@@ -67,6 +76,37 @@ async function writeCaptureFiles(captureRoot) {
     await fs.mkdir(path.dirname(target), { recursive: true })
     await fs.writeFile(target, content)
   }
+  await fs.writeFile(path.join(captureRoot, 'computer-use-session.json'), `${JSON.stringify({
+    schemaVersion: 'echo.release_index.family_gameplay_computer_use_session.v1',
+    appId: 'test-game.exe',
+    windowTitle: 'Galactic Survey Test Window',
+    actions: [
+      'Opened inventory and verified the Index surface.',
+      'Opened HoloMap and captured Survey Array completion proof.'
+    ],
+    verificationChecks: [
+      {
+        id: 'freshWorldCreated',
+        label: 'Fresh world/profile created',
+        status: 'captured',
+        evidenceRef: 'freshWorldCreated',
+        note: 'Verified from imported notes, screenshot, and logs.'
+      },
+      {
+        id: 'realSurveyArrayPlaythrough',
+        label: 'Survey Array objective completed',
+        status: 'captured',
+        evidenceRef: 'screenshots/survey-array-complete.png',
+        note: 'Verified from imported screenshot.'
+      }
+    ],
+    verificationSummary: {
+      checkCount: 2,
+      capturedCount: 2,
+      blockedCount: 0,
+      notAttemptedCount: 0
+    }
+  }, null, 2)}\n`, 'utf8')
 }
 
 async function writeArtifact(filePath) {
@@ -78,7 +118,7 @@ async function writeArtifact(filePath) {
 }
 
 async function writeDownloadEvidence(releaseIndexRoot, manifest, template, artifact) {
-  const repoName = manifest.sourceRepo.split('/').pop()
+  const repoName = manifestRepoName(manifest)
   const localPath = path.relative(releaseIndexRoot, artifact.path).replace(/\\/g, '/')
   const report = {
     schemaVersion: 'echo.galactic_survey.draft-download.v1',
@@ -88,7 +128,7 @@ async function writeDownloadEvidence(releaseIndexRoot, manifest, template, artif
       editions: [
         {
           repoName,
-          packId: manifest.packId,
+          packId: manifestPackId(manifest),
           releaseTag: template.run.releaseTag,
           release: {
             htmlUrl: `https://example.invalid/${repoName}/releases/${template.run.releaseTag}`,
@@ -148,7 +188,7 @@ try {
     const manifest = JSON.parse(await fs.readFile(path.join(importTmp, 'release-manifest.template.json'), 'utf8'))
     const template = JSON.parse(await fs.readFile(path.join(importTmp, templatePath), 'utf8'))
     const releaseIndexRoot = path.join(importTmp, 'fake-release-index')
-    const artifactPath = path.join(releaseIndexRoot, 'tmp', 'galactic-survey-draft-download', manifest.sourceRepo.split('/').pop(), template.run.artifactAsset)
+    const artifactPath = path.join(releaseIndexRoot, 'tmp', 'galactic-survey-draft-download', manifestRepoName(manifest), template.run.artifactAsset)
     const artifact = await writeArtifact(artifactPath)
     await writeDownloadEvidence(releaseIndexRoot, manifest, template, artifact)
     const captureRoot = path.join(importTmp, 'capture')
@@ -199,6 +239,19 @@ try {
     assert.equal(importedEvidence.run.expectedArtifactSha256, artifact.sha256)
     assert.equal(importedEvidence.run.expectedArtifactSize, artifact.size)
     assert.equal(importedEvidence.run.artifactMatchesExpected, true)
+    assert.equal(
+      importedEvidence.importedCapture.computerUseSession,
+      'fixtures/galactic-survey/gameplay-qa/evidence/computer-use-session.json'
+    )
+    assert.equal(importedEvidence.importedCapture.computerUseVerificationSummary.capturedCount, 2)
+
+    const importedSession = JSON.parse(await fs.readFile(
+      path.join(importTmp, 'fixtures/galactic-survey/gameplay-qa/evidence/computer-use-session.json'),
+      'utf8'
+    ))
+    assert.equal(importedSession.familyKey, 'galactic-survey')
+    assert.equal(importedSession.packId, template.packId)
+    assert.equal(importedSession.verificationChecks[1].evidenceRef, 'fixtures/galactic-survey/gameplay-qa/evidence/screenshots/survey-array-complete.png')
 
     const releaseReady = run(verifyScript, importTmp, ['--require-release-ready'])
     assert.equal(releaseReady.status, 0, `${releaseReady.stdout}\n${releaseReady.stderr}`)
@@ -208,6 +261,56 @@ try {
     assert.match(`${overwriteBlocked.stdout}\n${overwriteBlocked.stderr}`, /already exists; pass --force/u)
   } finally {
     await fs.rm(importTmp, { recursive: true, force: true })
+  }
+
+  const invalidSessionTmp = await fs.mkdtemp(path.join(os.tmpdir(), 'galactic-survey-edition-capture-invalid-computer-use-'))
+  try {
+    await copySeedFiles(invalidSessionTmp)
+    const manifest = JSON.parse(await fs.readFile(path.join(invalidSessionTmp, 'release-manifest.template.json'), 'utf8'))
+    const template = JSON.parse(await fs.readFile(path.join(invalidSessionTmp, templatePath), 'utf8'))
+    const releaseIndexRoot = path.join(invalidSessionTmp, 'fake-release-index')
+    const artifactPath = path.join(releaseIndexRoot, 'tmp', 'galactic-survey-draft-download', manifestRepoName(manifest), template.run.artifactAsset)
+    const artifact = await writeArtifact(artifactPath)
+    await writeDownloadEvidence(releaseIndexRoot, manifest, template, artifact)
+    const captureRoot = path.join(invalidSessionTmp, 'capture')
+    const prepared = run(prepScript, invalidSessionTmp, [
+      '--release-index-root', releaseIndexRoot,
+      '--capture-root', captureRoot,
+      '--tester', 'CI capture tester',
+      '--world-or-profile', 'Galactic Survey CI profile',
+      '--started-at', '2026-06-13T10:30:00Z'
+    ])
+    assert.equal(prepared.status, 0, `${prepared.stdout}\n${prepared.stderr}`)
+    await writeCaptureFiles(captureRoot)
+    const sessionPath = path.join(captureRoot, 'computer-use-session.json')
+    const session = JSON.parse(await fs.readFile(sessionPath, 'utf8'))
+    session.verificationChecks = [{
+      id: 'terminalVisible',
+      label: 'Terminal visible',
+      status: 'captured',
+      evidenceRef: 'screenshots/missing-terminal.png',
+      note: 'This proof was not imported.'
+    }]
+    session.verificationSummary = {
+      checkCount: 1,
+      capturedCount: 1,
+      blockedCount: 0,
+      notAttemptedCount: 0
+    }
+    await fs.writeFile(sessionPath, `${JSON.stringify(session, null, 2)}\n`, 'utf8')
+
+    const imported = run(importScript, invalidSessionTmp, [
+      '--capture-root', captureRoot,
+      '--artifact', artifactPath,
+      '--tester', 'CI capture tester',
+      '--world-or-profile', 'Galactic Survey CI profile',
+      '--started-at', '2026-06-13T10:30:00Z',
+      '--force'
+    ])
+    assert.equal(imported.status, 1)
+    assert.match(`${imported.stdout}\n${imported.stderr}`, /must reference a required claim or imported local proof path/u)
+  } finally {
+    await fs.rm(invalidSessionTmp, { recursive: true, force: true })
   }
 } finally {
   await fs.rm(tmp, { recursive: true, force: true })
