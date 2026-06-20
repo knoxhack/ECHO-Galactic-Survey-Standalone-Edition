@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "echo.official_modpack.export_report.v1",
+  "status": "rebuilt",
+  "pack": "galactic-survey-standalone-edition",
+  "name": "Galactic Survey Standalone Edition",
+  "channel": "beta",
+  "version": "0.1.2",
+  "runtimeTarget": "echo_runtime_standalone",
+  "moduleArtifactFamily": "standalone",
+  "moduleRelease": "modules-beta-full-20260620",
+  "moduleCount": 41,
+  "generatedAt": "2026-06-20T04:41:41.818Z",
+  "sourceRepo": "knoxhack/ECHO-Galactic-Survey-Standalone-Edition",
+  "releaseTag": "galactic-survey-standalone-0.1.2-beta"
+}

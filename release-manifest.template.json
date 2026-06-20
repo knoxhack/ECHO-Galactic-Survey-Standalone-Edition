@@ -1,11 +1,11 @@
 {
   "pack": "galactic-survey-standalone-edition",
   "name": "Galactic Survey Standalone Edition",
-  "version": "0.1.1",
-  "channel": "alpha",
+  "version": "0.1.2",
+  "channel": "beta",
   "minecraft": "Standalone",
   "artifactMode": "zip",
-  "artifactName": "galactic-survey-standalone-edition-0.1.1.zip",
+  "artifactName": "galactic-survey-standalone-edition-0.1.2.zip",
   "moduleArtifactFamily": "standalone",
   "moduleRequirements": [
     {
@@ -18,9 +18,9 @@
       "path": "mods/echoadaptercore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "851fcebce74d964c3502f65d42518f60b162c9985ecaaa9ee4c6560fe5765563",
-      "size": 970544,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoadaptercore-1.0.0-standalone.jar"
+      "sha256": "3d3fda61b7ec5fe4e22701e0933a338ca945e1eed03cc8714b1eddc8f8bb3fd0",
+      "size": 977637,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoadaptercore-1.0.0-standalone.jar"
     },
     {
       "id": "echoassetcore",
@@ -32,9 +32,9 @@
       "path": "mods/echoassetcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "cb0584c979821cdb015014c458eab5196e7d71c670f8d8cdbc3ae5626bdcd718",
-      "size": 50870,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoassetcore-1.0.0-standalone.jar"
+      "sha256": "fd812dadd8928efc937b9238263e0120e3c114635c851f436380c498313a6175",
+      "size": 50869,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoassetcore-1.0.0-standalone.jar"
     },
     {
       "id": "echoatmospherecore",
@@ -46,9 +46,9 @@
       "path": "mods/echoatmospherecore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "1938a4a19f2091bfc9f0079fd98e9c32c00dcb9327de291e24dd6f503bb371a2",
-      "size": 34294,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoatmospherecore-1.0.0-standalone.jar"
+      "sha256": "e718fcf331db874ffdca41b412af66b6c62de03588527c45bc9420106d8b6b55",
+      "size": 34556,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoatmospherecore-1.0.0-standalone.jar"
     },
     {
       "id": "echoblockworks",
@@ -60,9 +60,9 @@
       "path": "mods/echoblockworks-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "7f795c16a89ba601d6b107146ce8d83ca7514fe0cf3fb0e0f677909179b8d3ce",
-      "size": 1337789,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoblockworks-1.0.0-standalone.jar"
+      "sha256": "5e81f272b438ed91411c2a87235c5bf20cc7d2ac07044b36e6e50f924d47bb14",
+      "size": 1346021,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoblockworks-1.0.0-standalone.jar"
     },
     {
       "id": "echocameracore",
@@ -74,9 +74,9 @@
       "path": "mods/echocameracore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "5216c835282b6bde1e9f3262b531aaed440db10ea67a22e2e417767e048824bd",
-      "size": 23458,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocameracore-1.0.0-standalone.jar"
+      "sha256": "c4ffa777f6d8fa55860ef40f35fd4e29d12798d1932f2c8f2266969317355ea3",
+      "size": 23467,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocameracore-1.0.0-standalone.jar"
     },
     {
       "id": "echocommonloot",
@@ -88,9 +88,9 @@
       "path": "mods/echocommonloot-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "a96675f1d333addcd72cb89f717c8a85739e6dda6963f149e0990cd2c5420d29",
-      "size": 13452,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocommonloot-0.1.0-standalone.jar"
+      "sha256": "587b461e1e4f4b60db8079997fc4fd25d9e6fa2d0d59adce89bf82ee871be321",
+      "size": 13470,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocommonloot-0.1.0-standalone.jar"
     },
     {
       "id": "echocontentcore",
@@ -102,9 +102,9 @@
       "path": "mods/echocontentcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "055cb369e05fc759c90a08017426d233d6264d861eac04f5fafc249b3ed6019a",
-      "size": 38592,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocontentcore-1.0.0-standalone.jar"
+      "sha256": "e6c2c2d7d212df59a2482e4bc97931816b8ee2cefe3f96575a279e22ab9fb5f1",
+      "size": 38603,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocontentcore-1.0.0-standalone.jar"
     },
     {
       "id": "echocore",
@@ -116,9 +116,9 @@
       "path": "mods/echocore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "5a9e7f7d47972384f2b1db9cdef0f6afe85c46ec3946cc8364d4f8a375d1d6c9",
-      "size": 377929,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocore-1.0.0-standalone.jar"
+      "sha256": "c8302fb2c03f7d0baf8907091fd17a21dd913ca09794d5f8df7a1a7566e06fa1",
+      "size": 379709,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocore-1.0.0-standalone.jar"
     },
     {
       "id": "echocreatureroles",
@@ -130,9 +130,9 @@
       "path": "mods/echocreatureroles-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "8c98437801647b574fddbd470693220eb030008cb82a5d855b4f5025abde8f29",
-      "size": 13216,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocreatureroles-0.1.0-standalone.jar"
+      "sha256": "02f4aa697e3cce710ceec030364908036d81a7273363a8d313f41a5d2d69b479",
+      "size": 13230,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocreatureroles-0.1.0-standalone.jar"
     },
     {
       "id": "echofoundationcore",
@@ -144,9 +144,9 @@
       "path": "mods/echofoundationcore-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "87c918dcdfeda78125212a5bd88295442dc89a711af27fa568f30bc1a450297e",
-      "size": 16701,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echofoundationcore-0.1.0-standalone.jar"
+      "sha256": "a673ac5fa10423eba456efe1c9da597f26b9a3ba084fc364eb91e50ce5c492c7",
+      "size": 16725,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echofoundationcore-0.1.0-standalone.jar"
     },
     {
       "id": "echogalacticcore",
@@ -158,9 +158,9 @@
       "path": "mods/echogalacticcore-0.1.0-native-alpha-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4419ef6135c878f89286ad896078d300c72a7110a3be3f299b0f665e49c27668",
-      "size": 12073433,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echogalacticcore-0.1.0-native-alpha-standalone.jar"
+      "sha256": "38d8fff8f326c883b07b2de4cfbc54f00a2859aed166d4c92299be7160764aab",
+      "size": 12082294,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echogalacticcore-0.1.0-native-alpha-standalone.jar"
     },
     {
       "id": "echogalacticsurveyprotocol",
@@ -172,9 +172,9 @@
       "path": "mods/echogalacticsurveyprotocol-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "1780471d7d0af1a66ab31c10d6e9f24009b1f9fdbac899f6ebc3a927918e7943",
-      "size": 135465,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echogalacticsurveyprotocol-0.1.0-standalone.jar"
+      "sha256": "4aa5654963e5e5041a16236ee9fbd9d6d7d28bafa4338bd5855f0f1522bdaab2",
+      "size": 135458,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echogalacticsurveyprotocol-0.1.0-standalone.jar"
     },
     {
       "id": "echoholomap",
@@ -186,9 +186,9 @@
       "path": "mods/echoholomap-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "f7bffc43e897e4a0882ffa406fc5e1e4412f695648d12c9bf404a9939f00712c",
-      "size": 1502498,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoholomap-1.0.0-standalone.jar"
+      "sha256": "169a0c154a885567419cc27f155a73db307a258318fdb27c2006572d8eda060d",
+      "size": 1503940,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoholomap-1.0.0-standalone.jar"
     },
     {
       "id": "echohudcore",
@@ -200,23 +200,23 @@
       "path": "mods/echohudcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4721370a32aeefc7e45a64b019b19de63c1dd3c327173d503d63d2d21b2c4593",
-      "size": 52012,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echohudcore-1.0.0-standalone.jar"
+      "sha256": "aeda80457f5d95afad08af775641cc86ee615a6367aa710f5e1f3c2673f7ed7f",
+      "size": 52974,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echohudcore-1.0.0-standalone.jar"
     },
     {
       "id": "echoindex",
       "moduleId": "echoindex",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "artifactFamily": "standalone",
-      "assetName": "echoindex-1.0.0-standalone.jar",
-      "artifactName": "echoindex-1.0.0-standalone.jar",
-      "path": "mods/echoindex-1.0.0-standalone.jar",
+      "assetName": "echoindex-1.0.1-standalone.jar",
+      "artifactName": "echoindex-1.0.1-standalone.jar",
+      "path": "mods/echoindex-1.0.1-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "f205dd6a30d6b88ef39f030822375f31554b65ee118715930414f60f2114f623",
-      "size": 594856,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoindex-1.0.0-standalone.jar"
+      "sha256": "f03e7c4fcf3efbad5ad6c0d98790f5f184716ea12ab3663a7925eb570b1a543b",
+      "size": 614045,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoindex-1.0.1-standalone.jar"
     },
     {
       "id": "echoinputcore",
@@ -228,9 +228,9 @@
       "path": "mods/echoinputcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4f5fc3c89405890d6b27e2dfa044a834f18ee4c02bd860ff379171470c2a9e2a",
+      "sha256": "16a26312b635044469a7d6127595b109b70a0940d4611ee596dc2bafebf4eff4",
       "size": 26676,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoinputcore-1.0.0-standalone.jar"
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoinputcore-1.0.0-standalone.jar"
     },
     {
       "id": "echolens",
@@ -242,9 +242,9 @@
       "path": "mods/echolens-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "febbcc0ca00645302a6c70438900b31a090ebaf3b79e79b348a30448873beeec",
-      "size": 221137,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echolens-1.0.0-standalone.jar"
+      "sha256": "07ba72b70b3c9d06b483de1549c818ae30824773d78e78de9f80701dd348df57",
+      "size": 223269,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echolens-1.0.0-standalone.jar"
     },
     {
       "id": "echologisticsnetwork",
@@ -256,9 +256,9 @@
       "path": "mods/echologisticsnetwork-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "474b6784fa868d3a3d43a5ac3350e33390735eda092012dec1c9be42a45cbba8",
-      "size": 3684530,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echologisticsnetwork-1.0.0-standalone.jar"
+      "sha256": "55ef4a6597330446013d377fe174920a99b497f55df1854144cf5f9da2174ad6",
+      "size": 3685643,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echologisticsnetwork-1.0.0-standalone.jar"
     },
     {
       "id": "echomachinecore",
@@ -270,9 +270,9 @@
       "path": "mods/echomachinecore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "3a5ea0b66e195f54427fa76f1d07be8e64959e72a436e423b58ad1b4cfb3b470",
-      "size": 73857,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echomachinecore-1.0.0-standalone.jar"
+      "sha256": "1935189d2783a8c08f669b16098d3068aeb08a8d20a59e81b2c8ca27476525e1",
+      "size": 73867,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echomachinecore-1.0.0-standalone.jar"
     },
     {
       "id": "echomaterialcore",
@@ -284,9 +284,9 @@
       "path": "mods/echomaterialcore-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "c78c4a55d79cf18d25af4f3a74144a53fd3df0ec429989fe863af807c40e57bd",
-      "size": 27885,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echomaterialcore-0.1.0-standalone.jar"
+      "sha256": "a1d4e05a1c9c0b2896e70c1b08cc727ad38f568e8a7ebd78cb32d37d9ead0bb1",
+      "size": 27943,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echomaterialcore-0.1.0-standalone.jar"
     },
     {
       "id": "echomissioncore",
@@ -298,9 +298,9 @@
       "path": "mods/echomissioncore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "fa6d7ce199fab0ad8f9c1c70c4315d77d72318c22c6b86c7b93a3e68740f8366",
-      "size": 109724,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echomissioncore-1.0.0-standalone.jar"
+      "sha256": "b587ea472895ca7458db4f3ddb172b43972c26b1b18d7950bbb9a3a22505f429",
+      "size": 125065,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echomissioncore-1.0.0-standalone.jar"
     },
     {
       "id": "echonetcore",
@@ -312,9 +312,9 @@
       "path": "mods/echonetcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "8a6f02a1f709efa7524beebb719ca2cd549c2227f490de376d7881026f155d3f",
-      "size": 73893,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echonetcore-1.0.0-standalone.jar"
+      "sha256": "5173d735938ed428e401776794d496e9fdb075cf1a690197721077b34eaad95e",
+      "size": 80395,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echonetcore-1.0.0-standalone.jar"
     },
     {
       "id": "echoorbitalremnants",
@@ -326,9 +326,9 @@
       "path": "mods/echoorbitalremnants-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "6faf80a28656b24f63ded11fbf6618a6cda9f5f763f57a123e827316aeba21bb",
-      "size": 14506140,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoorbitalremnants-1.0.0-standalone.jar"
+      "sha256": "34ab6416ee7fe765d1f8527aa6bd648f44170f3a52119dea777bd9267357070a",
+      "size": 14510872,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoorbitalremnants-1.0.0-standalone.jar"
     },
     {
       "id": "echoplatformcore",
@@ -340,9 +340,9 @@
       "path": "mods/echoplatformcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "2ba10828d340d5c2284a193fc62d87d4ad8dc8bf57e98cc1ce5f1b8fa29b4747",
-      "size": 51618,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoplatformcore-1.0.0-standalone.jar"
+      "sha256": "7477376aca49a74a183e47f5236ad0268c78b6046b4c263a620e17537d30e4ad",
+      "size": 51615,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoplatformcore-1.0.0-standalone.jar"
     },
     {
       "id": "echopowercore",
@@ -354,9 +354,9 @@
       "path": "mods/echopowercore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "d50a240325996cd932c79f246d46d10e0d8ce80f2b161f37a391b1abcc330937",
-      "size": 28281,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echopowercore-1.0.0-standalone.jar"
+      "sha256": "b72dfa2b03f6855217029b2ea859472f8552c6295f9fb7cca4ce5112cb11a4bf",
+      "size": 28289,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echopowercore-1.0.0-standalone.jar"
     },
     {
       "id": "echopowergrid",
@@ -368,9 +368,9 @@
       "path": "mods/echopowergrid-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "462e96fce456a625fb46d7cf5d39e2a7cb2e069140b7a143e8cd56e89f0d8236",
-      "size": 7202306,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echopowergrid-1.0.0-standalone.jar"
+      "sha256": "d1814e80fe2078cab965ca9d23c76639d9251fab59583e83223983eb4a55e51e",
+      "size": 7203938,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echopowergrid-1.0.0-standalone.jar"
     },
     {
       "id": "echoprogressioncore",
@@ -382,9 +382,9 @@
       "path": "mods/echoprogressioncore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "5a25bf810b13fe5776cc98448e798c3634032977645ce8f9c7d01a444c096f10",
-      "size": 52047,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoprogressioncore-1.0.0-standalone.jar"
+      "sha256": "90f0be70f09978a725a56c6da441e321ff3173fe683452f3c5a21619f9c548ee",
+      "size": 52042,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoprogressioncore-1.0.0-standalone.jar"
     },
     {
       "id": "echorecipecore",
@@ -396,9 +396,9 @@
       "path": "mods/echorecipecore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "a14373389fcf39206095ea71c216d4234bbacc9ea8008396ddf955227c6003ee",
-      "size": 43188,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echorecipecore-1.0.0-standalone.jar"
+      "sha256": "9a4c5667a2b83bfec551c28bb2c9e5843f45b4c549183805b4d576ccf4b19278",
+      "size": 43196,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echorecipecore-1.0.0-standalone.jar"
     },
     {
       "id": "echoruntimeguard",
@@ -410,9 +410,9 @@
       "path": "mods/echoruntimeguard-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "cecc606f74708b9d0cdc3c4501d428c4ae19e28a940bd7c40a84ca05a7312bbd",
-      "size": 133545,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoruntimeguard-1.0.0-standalone.jar"
+      "sha256": "1244d66f46eae64fc1e7c71bb642b40bc38a95d356858fddfcdd3ffca35a1846",
+      "size": 133561,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoruntimeguard-1.0.0-standalone.jar"
     },
     {
       "id": "echoschemacore",
@@ -424,9 +424,9 @@
       "path": "mods/echoschemacore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "81866c0acd1084f4f5ec7e8ba0c65f3fadee280e012ab695d4c9159d1307ecd4",
-      "size": 35682,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoschemacore-1.0.0-standalone.jar"
+      "sha256": "0a2a071c76cbf4ca5af25120f04eb00d0ca6946a4a89af9da2f06c217ef4c4dc",
+      "size": 35689,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoschemacore-1.0.0-standalone.jar"
     },
     {
       "id": "echoscreencore",
@@ -438,9 +438,9 @@
       "path": "mods/echoscreencore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4adda38c5bdbc063e330bb7c6c7e9161c0d6a806d387fb13d8e837a89ebc6490",
-      "size": 398008,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoscreencore-1.0.0-standalone.jar"
+      "sha256": "92b71ed9b1af759cdc7f34e82e8a2882f1274b024f41e0b15fa7189c7a649b0a",
+      "size": 403835,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoscreencore-1.0.0-standalone.jar"
     },
     {
       "id": "echosoundcore",
@@ -452,9 +452,9 @@
       "path": "mods/echosoundcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "257a16d4263f2b2e1c9b0610b4d89aec96d269cdc4581b2339d317904f6b98f8",
-      "size": 11085947,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echosoundcore-1.0.0-standalone.jar"
+      "sha256": "3e210dd6c9762845920a0604b4c8676bffe89bf4945f69cb8c695fbc81ff0bda",
+      "size": 11086004,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echosoundcore-1.0.0-standalone.jar"
     },
     {
       "id": "echostationcore",
@@ -466,9 +466,9 @@
       "path": "mods/echostationcore-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4e81ba0939e3b7c4d2e0b7a0685b465ba7f0867bebbb76c9a1e1084dccf4de04",
-      "size": 17284,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echostationcore-0.1.0-standalone.jar"
+      "sha256": "8104686ed98184e235b373188a5f1ec6e1631007b13bca1e2d9d74ba8f6a8c8f",
+      "size": 17292,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echostationcore-0.1.0-standalone.jar"
     },
     {
       "id": "echoterminal",
@@ -480,9 +480,9 @@
       "path": "mods/echoterminal-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "fc6dc69406720eb7c1e97aeaee76282f39375eb2ebc835f24015336fd906022e",
-      "size": 22996137,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoterminal-1.0.0-standalone.jar"
+      "sha256": "f00e07d858df80660c87c63f7fa964b8ea2611efc8e47ffb700cfcd9dbb5dc41",
+      "size": 23009954,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoterminal-1.0.0-standalone.jar"
     },
     {
       "id": "echothemecore",
@@ -494,9 +494,9 @@
       "path": "mods/echothemecore-1.3.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "89549be76053a2d1a108cb9ce7567d0aa5040e52e9e90bb77e7b755b79b001d6",
-      "size": 69627398,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echothemecore-1.3.0-standalone.jar"
+      "sha256": "6ba59d427a35312a465c95cb056c69fb59d02c774b456b9824777866890ce29c",
+      "size": 69628997,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echothemecore-1.3.0-standalone.jar"
     },
     {
       "id": "echotoolcore",
@@ -508,9 +508,9 @@
       "path": "mods/echotoolcore-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "600680bd03d299a90adef324f59c15056d2d0d771d66b82dff321ee6a96221c6",
-      "size": 16728,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echotoolcore-0.1.0-standalone.jar"
+      "sha256": "a58585f3f9d72e8de782eff03d85c8635870d73320b901575ac86d084762da4e",
+      "size": 16750,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echotoolcore-0.1.0-standalone.jar"
     },
     {
       "id": "echotutorialcore",
@@ -522,9 +522,9 @@
       "path": "mods/echotutorialcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "2422c859d2aac62b5ff403a3c83616f33b9dceac7b0121218976e0c8bf3cf235",
-      "size": 220461,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echotutorialcore-1.0.0-standalone.jar"
+      "sha256": "47b5aa22861f2c24d68990e92030fcb1a602d533d57611cf8e4377d0ac781da7",
+      "size": 220763,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echotutorialcore-1.0.0-standalone.jar"
     },
     {
       "id": "echovalidationcore",
@@ -536,9 +536,9 @@
       "path": "mods/echovalidationcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "b309562438798d3fc95f3288fa283b969d9120f08c622bc278c2acc71a3b290c",
-      "size": 47141,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echovalidationcore-1.0.0-standalone.jar"
+      "sha256": "7b1c91899e7de944a0155408fa1fc5351c8354f8a1f64d9e8b6cefa9318fa3a0",
+      "size": 47147,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echovalidationcore-1.0.0-standalone.jar"
     },
     {
       "id": "echovehiclecore",
@@ -550,9 +550,9 @@
       "path": "mods/echovehiclecore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "abbfbeb0ec4531d8ca18a4d6797114fabc49c8ef038bfce2a0c3859e4d12f61b",
-      "size": 27154,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echovehiclecore-1.0.0-standalone.jar"
+      "sha256": "b169398f8c2319783c4eff15dc59ded28a1788963e73e7b41370e7f773dd5a2a",
+      "size": 27170,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echovehiclecore-1.0.0-standalone.jar"
     },
     {
       "id": "echoworldcore",
@@ -564,9 +564,9 @@
       "path": "mods/echoworldcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "359b1011e45867bf0b57fe4c77b30a3d6dcac633c0e377b0ba7ff3dc6dc5725f",
-      "size": 182926,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoworldcore-1.0.0-standalone.jar"
+      "sha256": "b11d5c31506b8544a4f52a26f12411b13821eed5290b138ffb4140baca55edf1",
+      "size": 183183,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoworldcore-1.0.0-standalone.jar"
     },
     {
       "id": "echoworldstarter",
@@ -578,9 +578,9 @@
       "path": "mods/echoworldstarter-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "85d809928393d0e21009e4c2bf1aa6fabcb7717e71662b352316a8ebc49ff519",
-      "size": 18045,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoworldstarter-0.1.0-standalone.jar"
+      "sha256": "84a3c484fa66ee5bdd24e94223ef0d7b33a316cded1a3d3e70ab77db3e8a22ab",
+      "size": 18069,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoworldstarter-0.1.0-standalone.jar"
     }
   ],
   "modules": [
@@ -637,9 +637,9 @@
       "path": "mods/echoadaptercore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "851fcebce74d964c3502f65d42518f60b162c9985ecaaa9ee4c6560fe5765563",
-      "size": 970544,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoadaptercore-1.0.0-standalone.jar"
+      "sha256": "3d3fda61b7ec5fe4e22701e0933a338ca945e1eed03cc8714b1eddc8f8bb3fd0",
+      "size": 977637,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoadaptercore-1.0.0-standalone.jar"
     },
     {
       "id": "echoassetcore",
@@ -651,9 +651,9 @@
       "path": "mods/echoassetcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "cb0584c979821cdb015014c458eab5196e7d71c670f8d8cdbc3ae5626bdcd718",
-      "size": 50870,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoassetcore-1.0.0-standalone.jar"
+      "sha256": "fd812dadd8928efc937b9238263e0120e3c114635c851f436380c498313a6175",
+      "size": 50869,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoassetcore-1.0.0-standalone.jar"
     },
     {
       "id": "echoatmospherecore",
@@ -665,9 +665,9 @@
       "path": "mods/echoatmospherecore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "1938a4a19f2091bfc9f0079fd98e9c32c00dcb9327de291e24dd6f503bb371a2",
-      "size": 34294,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoatmospherecore-1.0.0-standalone.jar"
+      "sha256": "e718fcf331db874ffdca41b412af66b6c62de03588527c45bc9420106d8b6b55",
+      "size": 34556,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoatmospherecore-1.0.0-standalone.jar"
     },
     {
       "id": "echoblockworks",
@@ -679,9 +679,9 @@
       "path": "mods/echoblockworks-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "7f795c16a89ba601d6b107146ce8d83ca7514fe0cf3fb0e0f677909179b8d3ce",
-      "size": 1337789,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoblockworks-1.0.0-standalone.jar"
+      "sha256": "5e81f272b438ed91411c2a87235c5bf20cc7d2ac07044b36e6e50f924d47bb14",
+      "size": 1346021,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoblockworks-1.0.0-standalone.jar"
     },
     {
       "id": "echocameracore",
@@ -693,9 +693,9 @@
       "path": "mods/echocameracore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "5216c835282b6bde1e9f3262b531aaed440db10ea67a22e2e417767e048824bd",
-      "size": 23458,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocameracore-1.0.0-standalone.jar"
+      "sha256": "c4ffa777f6d8fa55860ef40f35fd4e29d12798d1932f2c8f2266969317355ea3",
+      "size": 23467,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocameracore-1.0.0-standalone.jar"
     },
     {
       "id": "echocommonloot",
@@ -707,9 +707,9 @@
       "path": "mods/echocommonloot-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "a96675f1d333addcd72cb89f717c8a85739e6dda6963f149e0990cd2c5420d29",
-      "size": 13452,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocommonloot-0.1.0-standalone.jar"
+      "sha256": "587b461e1e4f4b60db8079997fc4fd25d9e6fa2d0d59adce89bf82ee871be321",
+      "size": 13470,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocommonloot-0.1.0-standalone.jar"
     },
     {
       "id": "echocontentcore",
@@ -721,9 +721,9 @@
       "path": "mods/echocontentcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "055cb369e05fc759c90a08017426d233d6264d861eac04f5fafc249b3ed6019a",
-      "size": 38592,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocontentcore-1.0.0-standalone.jar"
+      "sha256": "e6c2c2d7d212df59a2482e4bc97931816b8ee2cefe3f96575a279e22ab9fb5f1",
+      "size": 38603,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocontentcore-1.0.0-standalone.jar"
     },
     {
       "id": "echocore",
@@ -735,9 +735,9 @@
       "path": "mods/echocore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "5a9e7f7d47972384f2b1db9cdef0f6afe85c46ec3946cc8364d4f8a375d1d6c9",
-      "size": 377929,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocore-1.0.0-standalone.jar"
+      "sha256": "c8302fb2c03f7d0baf8907091fd17a21dd913ca09794d5f8df7a1a7566e06fa1",
+      "size": 379709,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocore-1.0.0-standalone.jar"
     },
     {
       "id": "echocreatureroles",
@@ -749,9 +749,9 @@
       "path": "mods/echocreatureroles-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "8c98437801647b574fddbd470693220eb030008cb82a5d855b4f5025abde8f29",
-      "size": 13216,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echocreatureroles-0.1.0-standalone.jar"
+      "sha256": "02f4aa697e3cce710ceec030364908036d81a7273363a8d313f41a5d2d69b479",
+      "size": 13230,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echocreatureroles-0.1.0-standalone.jar"
     },
     {
       "id": "echofoundationcore",
@@ -763,9 +763,9 @@
       "path": "mods/echofoundationcore-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "87c918dcdfeda78125212a5bd88295442dc89a711af27fa568f30bc1a450297e",
-      "size": 16701,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echofoundationcore-0.1.0-standalone.jar"
+      "sha256": "a673ac5fa10423eba456efe1c9da597f26b9a3ba084fc364eb91e50ce5c492c7",
+      "size": 16725,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echofoundationcore-0.1.0-standalone.jar"
     },
     {
       "id": "echogalacticcore",
@@ -777,9 +777,9 @@
       "path": "mods/echogalacticcore-0.1.0-native-alpha-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4419ef6135c878f89286ad896078d300c72a7110a3be3f299b0f665e49c27668",
-      "size": 12073433,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echogalacticcore-0.1.0-native-alpha-standalone.jar"
+      "sha256": "38d8fff8f326c883b07b2de4cfbc54f00a2859aed166d4c92299be7160764aab",
+      "size": 12082294,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echogalacticcore-0.1.0-native-alpha-standalone.jar"
     },
     {
       "id": "echogalacticsurveyprotocol",
@@ -791,9 +791,9 @@
       "path": "mods/echogalacticsurveyprotocol-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "1780471d7d0af1a66ab31c10d6e9f24009b1f9fdbac899f6ebc3a927918e7943",
-      "size": 135465,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echogalacticsurveyprotocol-0.1.0-standalone.jar"
+      "sha256": "4aa5654963e5e5041a16236ee9fbd9d6d7d28bafa4338bd5855f0f1522bdaab2",
+      "size": 135458,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echogalacticsurveyprotocol-0.1.0-standalone.jar"
     },
     {
       "id": "echoholomap",
@@ -805,9 +805,9 @@
       "path": "mods/echoholomap-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "f7bffc43e897e4a0882ffa406fc5e1e4412f695648d12c9bf404a9939f00712c",
-      "size": 1502498,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoholomap-1.0.0-standalone.jar"
+      "sha256": "169a0c154a885567419cc27f155a73db307a258318fdb27c2006572d8eda060d",
+      "size": 1503940,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoholomap-1.0.0-standalone.jar"
     },
     {
       "id": "echohudcore",
@@ -819,23 +819,23 @@
       "path": "mods/echohudcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4721370a32aeefc7e45a64b019b19de63c1dd3c327173d503d63d2d21b2c4593",
-      "size": 52012,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echohudcore-1.0.0-standalone.jar"
+      "sha256": "aeda80457f5d95afad08af775641cc86ee615a6367aa710f5e1f3c2673f7ed7f",
+      "size": 52974,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echohudcore-1.0.0-standalone.jar"
     },
     {
       "id": "echoindex",
       "moduleId": "echoindex",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "artifactFamily": "standalone",
-      "assetName": "echoindex-1.0.0-standalone.jar",
-      "artifactName": "echoindex-1.0.0-standalone.jar",
-      "path": "mods/echoindex-1.0.0-standalone.jar",
+      "assetName": "echoindex-1.0.1-standalone.jar",
+      "artifactName": "echoindex-1.0.1-standalone.jar",
+      "path": "mods/echoindex-1.0.1-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "f205dd6a30d6b88ef39f030822375f31554b65ee118715930414f60f2114f623",
-      "size": 594856,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoindex-1.0.0-standalone.jar"
+      "sha256": "f03e7c4fcf3efbad5ad6c0d98790f5f184716ea12ab3663a7925eb570b1a543b",
+      "size": 614045,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoindex-1.0.1-standalone.jar"
     },
     {
       "id": "echoinputcore",
@@ -847,9 +847,9 @@
       "path": "mods/echoinputcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4f5fc3c89405890d6b27e2dfa044a834f18ee4c02bd860ff379171470c2a9e2a",
+      "sha256": "16a26312b635044469a7d6127595b109b70a0940d4611ee596dc2bafebf4eff4",
       "size": 26676,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoinputcore-1.0.0-standalone.jar"
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoinputcore-1.0.0-standalone.jar"
     },
     {
       "id": "echolens",
@@ -861,9 +861,9 @@
       "path": "mods/echolens-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "febbcc0ca00645302a6c70438900b31a090ebaf3b79e79b348a30448873beeec",
-      "size": 221137,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echolens-1.0.0-standalone.jar"
+      "sha256": "07ba72b70b3c9d06b483de1549c818ae30824773d78e78de9f80701dd348df57",
+      "size": 223269,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echolens-1.0.0-standalone.jar"
     },
     {
       "id": "echologisticsnetwork",
@@ -875,9 +875,9 @@
       "path": "mods/echologisticsnetwork-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "474b6784fa868d3a3d43a5ac3350e33390735eda092012dec1c9be42a45cbba8",
-      "size": 3684530,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echologisticsnetwork-1.0.0-standalone.jar"
+      "sha256": "55ef4a6597330446013d377fe174920a99b497f55df1854144cf5f9da2174ad6",
+      "size": 3685643,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echologisticsnetwork-1.0.0-standalone.jar"
     },
     {
       "id": "echomachinecore",
@@ -889,9 +889,9 @@
       "path": "mods/echomachinecore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "3a5ea0b66e195f54427fa76f1d07be8e64959e72a436e423b58ad1b4cfb3b470",
-      "size": 73857,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echomachinecore-1.0.0-standalone.jar"
+      "sha256": "1935189d2783a8c08f669b16098d3068aeb08a8d20a59e81b2c8ca27476525e1",
+      "size": 73867,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echomachinecore-1.0.0-standalone.jar"
     },
     {
       "id": "echomaterialcore",
@@ -903,9 +903,9 @@
       "path": "mods/echomaterialcore-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "c78c4a55d79cf18d25af4f3a74144a53fd3df0ec429989fe863af807c40e57bd",
-      "size": 27885,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echomaterialcore-0.1.0-standalone.jar"
+      "sha256": "a1d4e05a1c9c0b2896e70c1b08cc727ad38f568e8a7ebd78cb32d37d9ead0bb1",
+      "size": 27943,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echomaterialcore-0.1.0-standalone.jar"
     },
     {
       "id": "echomissioncore",
@@ -917,9 +917,9 @@
       "path": "mods/echomissioncore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "fa6d7ce199fab0ad8f9c1c70c4315d77d72318c22c6b86c7b93a3e68740f8366",
-      "size": 109724,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echomissioncore-1.0.0-standalone.jar"
+      "sha256": "b587ea472895ca7458db4f3ddb172b43972c26b1b18d7950bbb9a3a22505f429",
+      "size": 125065,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echomissioncore-1.0.0-standalone.jar"
     },
     {
       "id": "echonetcore",
@@ -931,9 +931,9 @@
       "path": "mods/echonetcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "8a6f02a1f709efa7524beebb719ca2cd549c2227f490de376d7881026f155d3f",
-      "size": 73893,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echonetcore-1.0.0-standalone.jar"
+      "sha256": "5173d735938ed428e401776794d496e9fdb075cf1a690197721077b34eaad95e",
+      "size": 80395,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echonetcore-1.0.0-standalone.jar"
     },
     {
       "id": "echoorbitalremnants",
@@ -945,9 +945,9 @@
       "path": "mods/echoorbitalremnants-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "6faf80a28656b24f63ded11fbf6618a6cda9f5f763f57a123e827316aeba21bb",
-      "size": 14506140,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoorbitalremnants-1.0.0-standalone.jar"
+      "sha256": "34ab6416ee7fe765d1f8527aa6bd648f44170f3a52119dea777bd9267357070a",
+      "size": 14510872,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoorbitalremnants-1.0.0-standalone.jar"
     },
     {
       "id": "echoplatformcore",
@@ -959,9 +959,9 @@
       "path": "mods/echoplatformcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "2ba10828d340d5c2284a193fc62d87d4ad8dc8bf57e98cc1ce5f1b8fa29b4747",
-      "size": 51618,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoplatformcore-1.0.0-standalone.jar"
+      "sha256": "7477376aca49a74a183e47f5236ad0268c78b6046b4c263a620e17537d30e4ad",
+      "size": 51615,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoplatformcore-1.0.0-standalone.jar"
     },
     {
       "id": "echopowercore",
@@ -973,9 +973,9 @@
       "path": "mods/echopowercore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "d50a240325996cd932c79f246d46d10e0d8ce80f2b161f37a391b1abcc330937",
-      "size": 28281,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echopowercore-1.0.0-standalone.jar"
+      "sha256": "b72dfa2b03f6855217029b2ea859472f8552c6295f9fb7cca4ce5112cb11a4bf",
+      "size": 28289,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echopowercore-1.0.0-standalone.jar"
     },
     {
       "id": "echopowergrid",
@@ -987,9 +987,9 @@
       "path": "mods/echopowergrid-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "462e96fce456a625fb46d7cf5d39e2a7cb2e069140b7a143e8cd56e89f0d8236",
-      "size": 7202306,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echopowergrid-1.0.0-standalone.jar"
+      "sha256": "d1814e80fe2078cab965ca9d23c76639d9251fab59583e83223983eb4a55e51e",
+      "size": 7203938,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echopowergrid-1.0.0-standalone.jar"
     },
     {
       "id": "echoprogressioncore",
@@ -1001,9 +1001,9 @@
       "path": "mods/echoprogressioncore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "5a25bf810b13fe5776cc98448e798c3634032977645ce8f9c7d01a444c096f10",
-      "size": 52047,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoprogressioncore-1.0.0-standalone.jar"
+      "sha256": "90f0be70f09978a725a56c6da441e321ff3173fe683452f3c5a21619f9c548ee",
+      "size": 52042,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoprogressioncore-1.0.0-standalone.jar"
     },
     {
       "id": "echorecipecore",
@@ -1015,9 +1015,9 @@
       "path": "mods/echorecipecore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "a14373389fcf39206095ea71c216d4234bbacc9ea8008396ddf955227c6003ee",
-      "size": 43188,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echorecipecore-1.0.0-standalone.jar"
+      "sha256": "9a4c5667a2b83bfec551c28bb2c9e5843f45b4c549183805b4d576ccf4b19278",
+      "size": 43196,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echorecipecore-1.0.0-standalone.jar"
     },
     {
       "id": "echoruntimeguard",
@@ -1029,9 +1029,9 @@
       "path": "mods/echoruntimeguard-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "cecc606f74708b9d0cdc3c4501d428c4ae19e28a940bd7c40a84ca05a7312bbd",
-      "size": 133545,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoruntimeguard-1.0.0-standalone.jar"
+      "sha256": "1244d66f46eae64fc1e7c71bb642b40bc38a95d356858fddfcdd3ffca35a1846",
+      "size": 133561,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoruntimeguard-1.0.0-standalone.jar"
     },
     {
       "id": "echoschemacore",
@@ -1043,9 +1043,9 @@
       "path": "mods/echoschemacore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "81866c0acd1084f4f5ec7e8ba0c65f3fadee280e012ab695d4c9159d1307ecd4",
-      "size": 35682,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoschemacore-1.0.0-standalone.jar"
+      "sha256": "0a2a071c76cbf4ca5af25120f04eb00d0ca6946a4a89af9da2f06c217ef4c4dc",
+      "size": 35689,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoschemacore-1.0.0-standalone.jar"
     },
     {
       "id": "echoscreencore",
@@ -1057,9 +1057,9 @@
       "path": "mods/echoscreencore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4adda38c5bdbc063e330bb7c6c7e9161c0d6a806d387fb13d8e837a89ebc6490",
-      "size": 398008,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoscreencore-1.0.0-standalone.jar"
+      "sha256": "92b71ed9b1af759cdc7f34e82e8a2882f1274b024f41e0b15fa7189c7a649b0a",
+      "size": 403835,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoscreencore-1.0.0-standalone.jar"
     },
     {
       "id": "echosoundcore",
@@ -1071,9 +1071,9 @@
       "path": "mods/echosoundcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "257a16d4263f2b2e1c9b0610b4d89aec96d269cdc4581b2339d317904f6b98f8",
-      "size": 11085947,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echosoundcore-1.0.0-standalone.jar"
+      "sha256": "3e210dd6c9762845920a0604b4c8676bffe89bf4945f69cb8c695fbc81ff0bda",
+      "size": 11086004,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echosoundcore-1.0.0-standalone.jar"
     },
     {
       "id": "echostationcore",
@@ -1085,9 +1085,9 @@
       "path": "mods/echostationcore-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "4e81ba0939e3b7c4d2e0b7a0685b465ba7f0867bebbb76c9a1e1084dccf4de04",
-      "size": 17284,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echostationcore-0.1.0-standalone.jar"
+      "sha256": "8104686ed98184e235b373188a5f1ec6e1631007b13bca1e2d9d74ba8f6a8c8f",
+      "size": 17292,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echostationcore-0.1.0-standalone.jar"
     },
     {
       "id": "echoterminal",
@@ -1099,9 +1099,9 @@
       "path": "mods/echoterminal-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "fc6dc69406720eb7c1e97aeaee76282f39375eb2ebc835f24015336fd906022e",
-      "size": 22996137,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoterminal-1.0.0-standalone.jar"
+      "sha256": "f00e07d858df80660c87c63f7fa964b8ea2611efc8e47ffb700cfcd9dbb5dc41",
+      "size": 23009954,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoterminal-1.0.0-standalone.jar"
     },
     {
       "id": "echothemecore",
@@ -1113,9 +1113,9 @@
       "path": "mods/echothemecore-1.3.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "89549be76053a2d1a108cb9ce7567d0aa5040e52e9e90bb77e7b755b79b001d6",
-      "size": 69627398,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echothemecore-1.3.0-standalone.jar"
+      "sha256": "6ba59d427a35312a465c95cb056c69fb59d02c774b456b9824777866890ce29c",
+      "size": 69628997,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echothemecore-1.3.0-standalone.jar"
     },
     {
       "id": "echotoolcore",
@@ -1127,9 +1127,9 @@
       "path": "mods/echotoolcore-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "600680bd03d299a90adef324f59c15056d2d0d771d66b82dff321ee6a96221c6",
-      "size": 16728,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echotoolcore-0.1.0-standalone.jar"
+      "sha256": "a58585f3f9d72e8de782eff03d85c8635870d73320b901575ac86d084762da4e",
+      "size": 16750,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echotoolcore-0.1.0-standalone.jar"
     },
     {
       "id": "echotutorialcore",
@@ -1141,9 +1141,9 @@
       "path": "mods/echotutorialcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "2422c859d2aac62b5ff403a3c83616f33b9dceac7b0121218976e0c8bf3cf235",
-      "size": 220461,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echotutorialcore-1.0.0-standalone.jar"
+      "sha256": "47b5aa22861f2c24d68990e92030fcb1a602d533d57611cf8e4377d0ac781da7",
+      "size": 220763,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echotutorialcore-1.0.0-standalone.jar"
     },
     {
       "id": "echovalidationcore",
@@ -1155,9 +1155,9 @@
       "path": "mods/echovalidationcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "b309562438798d3fc95f3288fa283b969d9120f08c622bc278c2acc71a3b290c",
-      "size": 47141,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echovalidationcore-1.0.0-standalone.jar"
+      "sha256": "7b1c91899e7de944a0155408fa1fc5351c8354f8a1f64d9e8b6cefa9318fa3a0",
+      "size": 47147,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echovalidationcore-1.0.0-standalone.jar"
     },
     {
       "id": "echovehiclecore",
@@ -1169,9 +1169,9 @@
       "path": "mods/echovehiclecore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "abbfbeb0ec4531d8ca18a4d6797114fabc49c8ef038bfce2a0c3859e4d12f61b",
-      "size": 27154,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echovehiclecore-1.0.0-standalone.jar"
+      "sha256": "b169398f8c2319783c4eff15dc59ded28a1788963e73e7b41370e7f773dd5a2a",
+      "size": 27170,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echovehiclecore-1.0.0-standalone.jar"
     },
     {
       "id": "echoworldcore",
@@ -1183,9 +1183,9 @@
       "path": "mods/echoworldcore-1.0.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "359b1011e45867bf0b57fe4c77b30a3d6dcac633c0e377b0ba7ff3dc6dc5725f",
-      "size": 182926,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoworldcore-1.0.0-standalone.jar"
+      "sha256": "b11d5c31506b8544a4f52a26f12411b13821eed5290b138ffb4140baca55edf1",
+      "size": 183183,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoworldcore-1.0.0-standalone.jar"
     },
     {
       "id": "echoworldstarter",
@@ -1197,9 +1197,9 @@
       "path": "mods/echoworldstarter-0.1.0-standalone.jar",
       "required": true,
       "side": "both",
-      "sha256": "85d809928393d0e21009e4c2bf1aa6fabcb7717e71662b352316a8ebc49ff519",
-      "size": 18045,
-      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-canonical-full-20260616/echoworldstarter-0.1.0-standalone.jar"
+      "sha256": "84a3c484fa66ee5bdd24e94223ef0d7b33a316cded1a3d3e70ab77db3e8a22ab",
+      "size": 18069,
+      "url": "https://github.com/knoxhack/ECHO-Modules/releases/download/modules-beta-full-20260620/echoworldstarter-0.1.0-standalone.jar"
     }
   ],
   "runtime": {
@@ -1220,15 +1220,16 @@
   "runtimeTarget": "echo_runtime_standalone",
   "loader": "echo-standalone-runtime",
   "id": "galactic-survey-standalone-edition",
-  "artifactUrl": "https://github.com/knoxhack/ECHO-Galactic-Survey-Standalone-Edition/releases/download/galactic-survey-standalone-0.1.1-alpha/galactic-survey-standalone-edition-0.1.1.zip",
-  "updatedAt": "2026-06-16T15:37:23.580Z",
+  "artifactUrl": "https://github.com/knoxhack/ECHO-Galactic-Survey-Standalone-Edition/releases/download/galactic-survey-standalone-0.1.2-beta/galactic-survey-standalone-edition-0.1.2.zip",
+  "updatedAt": "2026-06-20T04:41:41.815Z",
   "generatedBy": "scripts/rebuild-official-modpack-assets",
   "validation": "approved",
-  "manifestAsset": "galactic-survey-standalone-edition-alpha-0.1.1.pack.json",
-  "moduleRelease": "modules-canonical-full-20260616",
-  "moduleSourceRevision": "ECHO-Modules modules-canonical-full-20260616 (9f25b667), 2026-06-16",
-  "releaseTag": "galactic-survey-standalone-0.1.1-alpha",
-  "releaseUrl": "https://github.com/knoxhack/ECHO-Galactic-Survey-Standalone-Edition/releases/tag/galactic-survey-standalone-0.1.1-alpha",
-  "artifactSha256": "5ac5bc019344c7471594d9d5e920d6a130fbd19825f8f4d9cca284253b9fc3ff",
-  "artifactSize": 145241857
+  "manifestAsset": "galactic-survey-standalone-edition-beta-0.1.2.pack.json",
+  "moduleRelease": "modules-beta-full-20260620",
+  "moduleSourceRevision": "ECHO-Modules modules-beta-full-20260620 (2a1c2ec8), 2026-06-20",
+  "releaseTag": "galactic-survey-standalone-0.1.2-beta",
+  "releaseUrl": "https://github.com/knoxhack/ECHO-Galactic-Survey-Standalone-Edition/releases/tag/galactic-survey-standalone-0.1.2-beta",
+  "artifactSha256": "0826bea401625b0640f749ed7a852d4826fde28ec10e6dc93ecad370604440de",
+  "artifactSize": 145332018,
+  "moduleReleaseId": "modules-beta-full-20260620"
 }

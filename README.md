@@ -34,3 +34,11 @@ Gameplay evidence must follow `docs/gameplay-evidence.md`. Start with
 `scripts/prepare-manual-gameplay-capture.mjs` so the manual run is bound to the
 Release Index downloaded artifact before `scripts/import-manual-gameplay-capture.mjs`
 can promote any local capture files into release evidence.
+
+## Release Assets
+
+- GitHub prerelease tag: `galactic-survey-standalone-0.1.2-beta`
+- Checked-in payloads: `release-assets/galactic-survey-standalone-0.1.2-beta/`
+- Uploaded assets: `galactic-survey-standalone-edition-0.1.2.zip`, `galactic-survey-standalone-edition-beta-0.1.2.pack.json`, `checksums.txt`, `echo-release.json`, `release-audit.json`
+
+These files mirror the live GitHub prerelease assets and the Release Index beta catalog.

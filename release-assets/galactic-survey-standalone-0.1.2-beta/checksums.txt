@@ -1,0 +1,4 @@
+3896804d9088fdf541508ce47c235af57430e31511fbd2c78a411581d2eb81a7  echo-release.json
+0826bea401625b0640f749ed7a852d4826fde28ec10e6dc93ecad370604440de  galactic-survey-standalone-edition-0.1.2.zip
+c86309c3125d23ed94827b573e6d60400b57c95efc057eea2bd34d1ae124dca9  galactic-survey-standalone-edition-beta-0.1.2.pack.json
+0e0f1a96b0a9fe2bddc6999b4731146a45c107eda9841362e4310b67c497cc57  release-audit.json
